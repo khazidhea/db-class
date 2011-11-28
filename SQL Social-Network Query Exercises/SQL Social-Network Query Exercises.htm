@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.db-class.org/course/quiz/feedback?submission_id=194547 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to Databases</title>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/main.css">
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/course-cs145.css">
+<script type="text/javascript" async="" src="./SQL Social-Network Query Exercises_files/ga.js"></script><script type="text/javascript" src="./SQL Social-Network Query Exercises_files/jquery.js"></script>
+<script type="text/javascript" src="./SQL Social-Network Query Exercises_files/MathJax.js"></script>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/quiz.css">
+
+
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script id="__isTpiViewExists"></script></head>
+
+    <body><div id="MathJax_Message" style="display: none; "></div>
+
+		<div id="container">
+
+			<div id="header" onclick="window.location=&#39;http://www.db-class.org/course/class/index&#39;">
+				<div id="header_links">
+                	<a href="http://www.db-class.org/course/auth/reportbug?info=8f132e832c1b0e6223623b509dee04e76daa5d8b%7CnY7EE55AOgjVckmefPRleaZ2wnZR2GQeOsDtqvrnjQYhnb%2ByWFj1oztBjM13EihSsP4275fPx4sVw%2B1TtmGJtS6A%2FS0kGE3UQ7NkSIhgzV6%2BI7%2FN7RFk5HbTCH%2BigcZ26z%2F87ZzstEIZSS81x4ETgIS9RM8VaAhmmB10ZBYSXVxYtlapjLJzkFpcXxB5YcaKgG%2FrsN43rAV0HWCBzDGP1RVDQBsk%2Byq5VrwD06TMCCTT9RuH1A5IdXsOaOttunLgWnEueVTXCaB1XRKxTQs2uqYYgLdN6%2FiCBSqHlvB%2FgyQdTaGaqfPWW6%2Bg%2FFD%2BnnKrKKCdiMPtU4Zm89veiWmYp4aDg8PzoZSB3d5VcdSV7bZHmiGatSrxKB1JAwtEGeYb3atBQYPlifFWF15WYGvEjHklNlsPSJ3Gb2OnbcBHwoPJjCEc1yLb1dz8%2F2VBAeED">Feedback</a>&nbsp;&nbsp;&nbsp;					<a href="http://www.db-class.org/course/class/preferences">Preferences</a>		            &nbsp;&nbsp;&nbsp;
+		            <a href="http://www.db-class.org/course/auth/logout">Logout</a>				</div>
+			</div>
+
+			<div id="content_body">
+
+				<div id="navbar">
+					<p class="navbar_item navbar_person">Azamat Galimzhanov</p>
+                    <p class="navbar_item navbar_home"><a href="http://www.db-class.org/course/class/index">Home</a></p>
+                    <p class="navbar_item navbar_progress"><a href="http://www.db-class.org/course/class/progress">Course Progress</a></p>					<p class="navbar_item navbar_video"><a href="http://www.db-class.org/course/video/list">Video Lectures</a></p>
+                    <p class="navbar_item navbar_quizzes"><a href="http://www.db-class.org/course/quiz/list?type=quiz">Assignments</a></p><p class="navbar_item navbar_midterms"><a href="http://www.db-class.org/course/quiz/list?type=midterm">Exams</a></p>
+					<p class="navbar_item navbar_qna" style="padding-bottom:20px"><a href="http://www.db-class.org/course/qna/index">Q&amp;A Forum</a></p>
+                    <p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index">Course Materials</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=schedule">Course Schedule</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=sample">Software Quick Guides</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=weeklyvids">Weekly Videos</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=faq">FAQ</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=optional-exercises">Optional Exercises</a></p>					<p class="navbar_item navbar_aboutus"><a href="http://www.db-class.org/course/aboutus/index">About Us</a></p>
+				</div>
+
+				<div id="content">
+
+                    
+<h1>SQL Social-Network Query Exercises - Feedback</h1><p>You achieved a score of <b>9.00</b> out of <b>9.00</b>.<br> Your answers, as well as our explanations, are shown below.</p><hr><span><div class="quiz_preamble">
+                  
+Students at your hometown high school have decided to organize their social network using databases. So far, they have collected information about sixteen students in four grades, 9-12. Here's the schema:
+
+<br><br> 
+Highschooler ( ID, name, grade )<br>
+English: There is a high school student with unique <span style="font-style: italic;">ID</span> and a given <span style="font-style: italic;">first name</span> in a certain <span style="font-style: italic;">grade</span>.<br><br>
+Friend ( ID1, ID2 )<br>
+English: The student with <span style="font-style: italic;">ID1</span>
+is friends with the student with <span style="font-style: italic;">ID2</span>.
+Friendship is mutual, so if (123, 456) is in the Friend table, so is
+(456, 123). <br><br>
+Likes ( ID1, ID2 )<br>
+English: The student with <span style="font-style: italic;">ID1</span>
+likes the student with <span style="font-style: italic;">ID2</span>.
+Liking someone is not necessarily mutual, so if (123, 456) is in the
+Likes table, there is no guarantee that (456, 123) is also present.
+
+<br><br>
+Your queries will run over a small data set conforming to the schema.
+<a href="http://www.db-class.org/course/resources/index?page=socialdata" target="_blank">View the database</a>.
+(You can also <a href="http://s3.amazonaws.com/dbclass-resources/docs/social.sql">download the schema and data</a>.)
+<br><br>
+For your convenience, here is a graph showing the various
+connections
+between the students in our database. 9th graders are blue, 10th
+graders
+are green, 11th graders are yellow, and 12th graders are purple.
+Undirected black edges indicate friendships, and directed red edges
+indicate that one student
+likes another student.<br><br><div style="text-align: center;">
+<img style="width: 494px; height:
+    352px;" alt="Social graph" title="Social graph" src="./SQL Social-Network Query Exercises_files/social.png"><br>
+</div>
+
+<br><br><b>Instructions:</b> 
+You are to write each of the following queries using SQL. Each question contains a link to a Query Workbench. The workbench will help you develop and debug your queries by running them using SQLite over the sample database. Once you're satisfied with your solution, click the "Keep This Solution" button in the Query Workbench  -- your query will be copied automatically to the box on this page for final submission.
+
+<br><br><b>Important Notes:</b>
+<ul>
+<li style="margin-top: 1em;">
+Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.
+</li>
+<li style="margin-top: 1em;">
+Unless a specific result ordering is asked for, you
+can return the result rows in any order.
+</li>
+<li style="margin-top: 1em;">
+<i>You are to translate the English into a SQL query that computes the desired result over all possible databases.</i> All we actually check is that your query gets the right answer on the small sample database. Thus, even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. (For example, if we ask for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question.) Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL. On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+</li>
+</ul>
+<br>
+You may perform these exercises as many times as you like, so we strongly encourage you to keep working with them until you complete the exercises with full credit. The exercises may continue to be worked after the deadline, but we will not use your scores.
+
+<br><br><b>NOTE: REMEMBER TO CLICK "Save and Submit" WHEN YOU ARE DONE!</b>
+<br>
+Please be patient as it does take time to check all of the exercises.
+<br><br>
+</div>
+<div class="quiz_question_group">
+<div class="quiz_question_group_preamble">
+            </div>
+<div class="quiz_question_group_questions">
+<div class="quiz_question">
+<div class="quiz_question_number">Question 1</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find the names of all students who are friends with someone named Gabriel. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=1">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[1]" id="answer[1]" rows="1" disabled="">SELECT name FROM highschooler WHERE id in (SELECT id1 FROM friend WHERE id2 in (SELECT id FROM highschooler WHERE name="Gabriel") )</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT name FROM highschooler WHERE id in (SELECT id1 FROM friend WHERE id2 in (SELECT id FROM highschooler WHERE name="Gabriel") )</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>Alexis</td></tr>
+<tr><td>Andrew</td></tr>
+<tr><td>Cassandra</td></tr>
+<tr><td>Jessica</td></tr>
+<tr><td>Jordan</td></tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>Alexis</td></tr>
+<tr><td>Andrew</td></tr>
+<tr><td>Cassandra</td></tr>
+<tr><td>Jessica</td></tr>
+<tr><td>Jordan</td></tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 2</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    For every student who likes someone 2 or more grades younger than themselves, return that student's name and grade, and the name and grade of the student they like. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=2">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[2]" id="answer[2]" rows="1" disabled="">SELECT a.name, a.grade, b.name, b.grade FROM highschooler a, highschooler b, likes c WHERE a.grade &gt;= b.grade+2 AND c.id1=a.id AND c.id2=b.id</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT a.name, a.grade, b.name, b.grade FROM highschooler a, highschooler b, likes c WHERE a.grade &gt;= b.grade+2 AND c.id1=a.id AND c.id2=b.id</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr>
+<td>John</td>
+<td>12</td>
+<td>Haley</td>
+<td>10</td>
+</tr></tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr>
+<td>John</td>
+<td>12</td>
+<td>Haley</td>
+<td>10</td>
+</tr></tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 3</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    For every pair of students who both like each other, return the name and grade of both students. Include each pair only once, with the two names in alphabetical order.<br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=3">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[3]" id="answer[3]" rows="1" disabled="">SELECT a.name, a.grade, b.name, b.grade FROM highschooler a, highschooler b, likes l1, likes l2 WHERE l1.id1=a.id AND l1.id2=b.id AND l2.id1=b.id AND l2.id2=a.id AND a.name &lt; b.name</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT a.name, a.grade, b.name, b.grade FROM highschooler a, highschooler b, likes l1, likes l2 WHERE l1.id1=a.id AND l1.id2=b.id AND l2.id1=b.id AND l2.id2=a.id AND a.name &lt; b.name</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 4</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find all students who do not appear in the Likes table (as a student who likes or is liked) and return their names and grades. Sort by grade, then by name within each grade.<br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=4">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[4]" id="answer[4]" rows="1" disabled="">SELECT name, grade FROM highschooler 
+EXCEPT
+SELECT name, grade FROM highschooler WHERE id IN (SELECT id FROM likes WHERE id=id1 OR id=id2)
+ORDER BY grade, name</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT name, grade FROM highschooler 
+EXCEPT
+SELECT name, grade FROM highschooler WHERE id IN (SELECT id FROM likes WHERE id=id1 OR id=id2)
+ORDER BY grade, name</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<i>(Order matters)</i> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 5</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    For every situation where student A likes student B, but we have no information about whom B likes (that is, B does not appear as an ID1 in the Likes table), return A and B's names and grades. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=5">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[5]" id="answer[5]" rows="1" disabled="">SELECT a.name, a.grade, b.name, b.grade FROM highschooler a, highschooler b, likes WHERE id1=a.id AND id2=b.id AND b.id in (
+
+SELECT id FROM highschooler WHERE id NOT IN (SELECT id FROM likes WHERE id=id1)
+
+)</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT a.name, a.grade, b.name, b.grade FROM highschooler a, highschooler b, likes WHERE id1=a.id AND id2=b.id AND b.id in (
+
+SELECT id FROM highschooler WHERE id NOT IN (SELECT id FROM likes WHERE id=id1)
+
+)</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 6</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find names and grades of students who only have friends in the same grade. Return the result sorted by grade, then by name within each grade. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=6">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[6]" id="answer[6]" rows="1" disabled="">SELECT name, grade FROM highschooler WHERE id in (SELECT id FROM highschooler 
+
+EXCEPT
+
+SELECT a.id FROM highschooler a, highschooler b, friend c WHERE c.id1=a.id AND c.id2=b.id AND (a.grade &gt; b.grade OR a.grade &lt; b.grade) GROUP BY a.id)
+
+ORDER BY grade, name</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT name, grade FROM highschooler WHERE id in (SELECT id FROM highschooler 
+
+EXCEPT
+
+SELECT a.id FROM highschooler a, highschooler b, friend c WHERE c.id1=a.id AND c.id2=b.id AND (a.grade &gt; b.grade OR a.grade &lt; b.grade) GROUP BY a.id)
+
+ORDER BY grade, name</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<i>(Order matters)</i> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 7</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    For each student A who likes a student B where the two are not friends, find if they have a friend C in common (who can introduce them!). For all such trios, return the name and grade of A, B, and C. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=7">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[7]" id="answer[7]" rows="1" disabled="">SELECT aname, agrade, bname, bgrade, c.name, c.grade FROM (SELECT a.id as aid, a.name as aname, a.grade as agrade, b.id as bid, b.name as bname, b.grade as bgrade FROM highschooler a, highschooler b, likes WHERE likes.id1=a.id AND likes.id2=b.id
+
+EXCEPT
+
+SELECT a.id, a.name, a.grade, b.id, b.name, b.grade FROM highschooler a, highschooler b, friend WHERE friend.id1=a.id AND friend.id2=b.id), highschooler c, friend f1, friend f2 WHERE f1.id1=aid AND f1.id2=c.id AND f2.id1=bid AND f2.id2=c.id</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT aname, agrade, bname, bgrade, c.name, c.grade FROM (SELECT a.id as aid, a.name as aname, a.grade as agrade, b.id as bid, b.name as bname, b.grade as bgrade FROM highschooler a, highschooler b, likes WHERE likes.id1=a.id AND likes.id2=b.id
+
+EXCEPT
+
+SELECT a.id, a.name, a.grade, b.id, b.name, b.grade FROM highschooler a, highschooler b, friend WHERE friend.id1=a.id AND friend.id2=b.id), highschooler c, friend f1, friend f2 WHERE f1.id1=aid AND f1.id2=c.id AND f2.id1=bid AND f2.id2=c.id</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 8</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find the difference between the number of students in the school and the number of different first names. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=8">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[8]" id="answer[8]" rows="1" disabled="">SELECT a-b FROM 
+(SELECT count(*) as a FROM highschooler),
+(
+SELECT count(distinct name) as b FROM highschooler)</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT a-b FROM 
+(SELECT count(*) as a FROM highschooler),
+(
+SELECT count(distinct name) as b FROM highschooler)</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr><td>2</td></tr></tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr><td>2</td></tr></tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 9</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find the name and grade of all students who are liked by more than one other student. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=62&question_id=9">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[9]" id="answer[9]" rows="1" disabled="">SELECT name, grade FROM highschooler WHERE id in (SELECT l1.id2 FROM likes l1, likes l2 WHERE l1.id1 in (SELECT id FROM highschooler) AND l2.id1 in (SELECT id FROM highschooler) AND l1.id1&lt;&gt;l2.id1 AND l1.id2=l2.id2)</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT name, grade FROM highschooler WHERE id in (SELECT l1.id2 FROM likes l1, likes l2 WHERE l1.id1 in (SELECT id FROM highschooler) AND l2.id1 in (SELECT id FROM highschooler) AND l1.id1&lt;&gt;l2.id1 AND l1.id2=l2.id2)</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Kris, then the query "select name from Highschooler where name = 'Kris'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+</div>
+</div></span>
+				</div> <!-- content -->
+
+            </div> <!-- content-body -->
+
+		</div> <!-- container -->
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4245877-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+
+
+
+
+</body></html>

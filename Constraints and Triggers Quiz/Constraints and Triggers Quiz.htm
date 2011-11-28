@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.db-class.org/course/quiz/feedback?submission_id=362232 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to Databases</title>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/main.css">
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/course-cs145.css">
+<script type="text/javascript" async="" src="./Constraints and Triggers Quiz_files/ga.js"></script><script type="text/javascript" src="./Constraints and Triggers Quiz_files/jquery.js"></script>
+<script type="text/javascript" src="./Constraints and Triggers Quiz_files/MathJax.js"></script>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/quiz.css">
+
+
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script id="__isTpiViewExists"></script></head>
+
+    <body><div id="MathJax_Message" style="display: none; "></div>
+
+		<div id="container">
+
+			<div id="header" onclick="window.location=&#39;http://www.db-class.org/course/class/index&#39;">
+				<div id="header_links">
+                	<a href="http://www.db-class.org/course/auth/reportbug?info=885f62700c8892b539789a3cfdb67ca8cb323813%7CnY7EE55AOgjVckmefPRleeVxqGMWfvU2Plalwy3yF2lPWIKNyqQccnWrbWDEjqCHclr2rkCcUVaWTr65AH1e3iuay8K3xBMNs%2F%2Bv2sR%2Bxkexh6ZfTRfTJFMrPVCEq14QDGseX4YhOFWzwmMuouogCW2eDRNN0fL1gagYKhtizjilikyP8bPiK0DIkeJ8A9EjdvG0I34RmystT%2B4hV46EFpVn%2B%2F9F7qQBvDHczSTl6UKwa6fBI%2B7sOE0wIkemu42uwnao%2FumJ5jDuKNmxRnbPWRktPK2RKVWNapp1pEabGoHWFKJg2kvjv49acVy%2B8ZHrO3lkrvsPlpkPPB7FNU0le7r8A0d%2FFehodzSimd5ldSbNv%2B9kSQoFhZ5xkz0tTtmcYI3EG13I6k0SU6bFln8k74F3zfMUnV%2FsaxItVojC4aCR0VDtf%2F1eixSBYSHlGfL7">Feedback</a>&nbsp;&nbsp;&nbsp;					<a href="http://www.db-class.org/course/class/preferences">Preferences</a>		            &nbsp;&nbsp;&nbsp;
+		            <a href="http://www.db-class.org/course/auth/logout">Logout</a>				</div>
+			</div>
+
+			<div id="content_body">
+
+				<div id="navbar">
+					<p class="navbar_item navbar_person">Azamat Galimzhanov</p>
+                    <p class="navbar_item navbar_home"><a href="http://www.db-class.org/course/class/index">Home</a></p>
+                    <p class="navbar_item navbar_progress"><a href="http://www.db-class.org/course/class/progress">Course Progress</a></p>					<p class="navbar_item navbar_video"><a href="http://www.db-class.org/course/video/list">Video Lectures</a></p>
+                    <p class="navbar_item navbar_quizzes"><a href="http://www.db-class.org/course/quiz/list?type=quiz">Assignments</a></p><p class="navbar_item navbar_midterms"><a href="http://www.db-class.org/course/quiz/list?type=midterm">Exams</a></p>
+					<p class="navbar_item navbar_qna" style="padding-bottom:20px"><a href="http://www.db-class.org/course/qna/index">Q&amp;A Forum</a></p>
+                    <p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index">Course Materials</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=schedule">Course Schedule</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=sample">Software Quick Guides</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=weeklyvids">Weekly Videos</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=faq">FAQ</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=optional-exercises">Optional Exercises</a></p>					<p class="navbar_item navbar_aboutus"><a href="http://www.db-class.org/course/aboutus/index">About Us</a></p>
+				</div>
+
+				<div id="content">
+
+                    
+<h1>Constraints and Triggers Quiz - Feedback</h1>
+
+<p>You achieved a score of <b>8.00</b> out of <b>8.00</b>.<br> Your answers, as well as our explanations, are shown below.</p><hr><span><div class="quiz_preamble">
+        <p>
+        This quiz uses an approach pioneered and patented by the Gradiance Corporation. Each multiple-choice quiz problem is based on a "root question," from which the system generates different correct and incorrect choices each time you take the quiz. Thus, you can test yourself on the same material multiple times. We strongly urge you to continue testing on each topic until you complete the quiz with full credit at least once. Although we record all scores, we only use the highest score you achieve.
+        </p>
+
+        <p>
+        After submitting your selections the system will score your quiz, and for incorrect answers will provide an "explanation" (sometimes for correct ones too). These explanations should help you get the right answer the next time around. To prevent rapid-fire guessing, the system enforces a minimum of 10 minutes between each submission of solutions.
+        </p>
+
+        <p>
+        If the quiz is taken after the deadline, in addition to hint-like explanations for specific choices, the system will provide more general explanations for each problem. For this reason, after-deadline quiz scores are penalized 50% (and will only be kept if the new score exceeds previous scores for the same quiz).
+        </p>
+    
+  </div>
+<div class="quiz_question_group">
+<div class="quiz_question_group_preamble"></div>
+<div class="quiz_question_group_questions">
+<div class="quiz_question">
+<div class="quiz_question_number">Question 1</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider the following SQL table declaration:
+<pre>   CREATE TABLE Emps (id INT, ssNo INT, name CHAR(20), managerID INT);
+</pre>
+We would like to extend the table declaration to enforce that each of <b>id</b>
+and <b>ssNo</b> is a key (by itself), and each value of <b>managerID</b>
+must be one of the values that appears in the <b>id</b> attribute of the same table. Which of the following is <i>not</i> a legal addition of SQL standard
+key and/or foreign-key constraints? Note: The addition does
+not have to achieve all of the stated goals; it only must
+result in legal SQL.</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[596][]" id="answer[596][0]" value="4988a9779efdb1b04dc19ae71893d3c3" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[596][0]">Add "PRIMARY KEY" after the first INT, and add ", FOREIGN KEY (managerID) REFERENCES Emps(id)" before the closing parenthesis.</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[596][]" id="answer[596][1]" value="62cb701400c9612503ee240fb2c9765b" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[596][1]">Add ", FOREIGN KEY (managerID) REFERENCES Emps(id)" before the closing parenthesis.</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[596][]" id="answer[596][2]" value="3128774efb7707aaecff21cd7c93a32f" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[596][2]">Add "PRIMARY KEY" after the first INT, and add "REFERENCES Emps(id)" before the closing parenthesis.</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[596][]" id="answer[596][3]" value="94fa371c5d6ffde189883f865ebb9a85" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[596][3]">Add "PRIMARY KEY" after the first INT, and add "UNIQUE" after the second INT.</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>Add ", FOREIGN KEY (managerID) REFERENCES Emps(id)" before the closing parenthesis.</td>
+<td>1.00</td>
+<td>A foreign key must reference a declared key. While <b>id</b> is intended to be a key, we have not declared it as such in this modification.</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>The correct answers (i.e., incorrect SQL) violate one of two rules:
+<ol>
+<li>You cannot have two primary keys (although you can have many "uniques").
+</li>
+<li>A foreign key can only reference an attribute that is a key (either primary key or unique).
+</li>
+</ol>
+</div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 2</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider the following trigger over a table R(a,b), specified using the trigger language of the SQL standard:
+<pre>   CREATE TRIGGER Rins
+   AFTER INSERT ON R
+   REFERENCING NEW ROW AS new
+   FOR EACH ROW
+   INSERT INTO R(a,b)
+     (SELECT DISTINCT R.a, new.b
+      FROM R
+      WHERE R.b = new.a)
+     EXCEPT
+     (SELECT DISTINCT a,b FROM R)
+</pre>
+Suppose table R is empty initially. We issue three commands to insert tuples into R: first we insert (1,2), then we insert (2,3), then we insert (3,4). After some of these inserts, trigger <b>Rins</b> may insert further tuples into R, which may activate the trigger recursively. After all the inserts are done, which of these tuples is NOT in table R?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[422][]" id="answer[422][4]" value="363ce0d29dda60599f09e03156138d3a" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[422][4]">(2,4)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[422][]" id="answer[422][5]" value="ee34893cf349f4abf1cbd402f70eb43f" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[422][5]">(1,4)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[422][]" id="answer[422][6]" value="a16e34d393698536ed59713466835453" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[422][6]">(3,2)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[422][]" id="answer[422][7]" value="c9d8859b4eeb120d209c937fca3a53af" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[422][7]">(1,3)</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>(3,2)</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>The trigger looks for existing tuples with a <b>b</b> value equal to the <b>a</b> value of the newly inserted tuple. It inserts new tuples with <b>a</b> values from the matching existing tuples and the <b>b</b> value from the new tuple.
+The EXCEPT part ensures that tuples are not inserted when the same tuple is already present.
+<p>
+Inserting (1,2) does not trigger the insertion of any other tuples.
+Inserting (2,3) triggers the insertion of (1,3), since the new <b>a</b> value of 2 matches the <b>b</b> value of the existing tuple (1,2). Inserting (1,3) does not (recursively) trigger the insertion of any other tuples.
+Inserting (3,4) triggers the insertion of (1,4) and (2,4), since the new <b>a</b> value of 3 matches the <b>b</b> value of the existing tuples (1,3) and (2,3). Inserting (1,4) does not (recursively) trigger the insertion of any other tuples. Inserting (2,4) (recursively) triggers the insertion of (1,4), since the new <b>a</b> value of 2 matches the <b>b</b> value of the existing tuple (1,2), but (1,4) is already present so a new copy is not inserted.</p>
+</div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 3</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider the following trigger over a table R(a,b), specified using the trigger language of the SQL standard:
+<pre>   CREATE TRIGGER Rins
+   AFTER INSERT ON R
+   REFERENCING NEW ROW AS new
+   FOR EACH ROW
+   WHEN (new.a * new.b &gt; 10)
+   INSERT INTO R VALUES (new.a - 1, new.b + 1);
+</pre>
+When we insert a tuple into R, the trigger may cause another tuple to be inserted, which may cause yet another tuple to be inserted, and so on, until finally a tuple is inserted that does not cause the trigger to fire. Suppose we begin with table R empty. Consider the following possible tuples inserted into R. After trigger execution completes, which of the insertions results in R containing exactly 3 tuples?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[600][]" id="answer[600][8]" value="2df89fcb776b4b8a82a42e99ee2d4520" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[600][8]">(11,1)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[600][]" id="answer[600][9]" value="3bb564c36f5305b3497f062a565933c0" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[600][9]">(3,9)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[600][]" id="answer[600][10]" value="4b6209ac6ba0cb696526642d077e1732" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[600][10]">(4,4)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[600][]" id="answer[600][11]" value="e777fde6319284ba3d037f41c9348a7d" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[600][11]">(3,8)</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>(3,8)</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>Each time the trigger is activated by an insertion (x,y), if x*y is greater than 10 then the trigger inserts a new tuple (x-1,y+1). Thus, if we insert (x,y) first, then in order to insert exactly three tuples, we need for x*y and (x-1)*(y+1) to be greater than 10, but for (x-2)*(y+2) to be 10 or less.</div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 4</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Here are SQL declarations for two tables S and T:
+<pre>   CREATE TABLE S(c INT PRIMARY KEY, d INT);
+   CREATE TABLE T(a INT PRIMARY KEY, b INT REFERENCES S(c));
+</pre>
+Suppose S(c,d) contains four tuples: (2,10), (3,11), (4,12), (5,13). Suppose T(a,b) contains four tuples: (0,4), (1,5), (2,4), (3,5). As a result of the constraints in the table declarations, certain insertions, deletions, and/or updates on S and T are disallowed. Which of the following modifications will <i>not</i> violate any constraint?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[597][]" id="answer[597][12]" value="bf9691dd05f21c36290d91e76176a2bc" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[597][12]">Deleting (4,12) from S</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[597][]" id="answer[597][13]" value="87655554d05d8e5fac4c609f7eeb2910" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[597][13]">Deleting (1,5) from T</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[597][]" id="answer[597][14]" value="da9de4c7c729f458d321078ba5d32988" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[597][14]">Inserting (5,6) into T</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[597][]" id="answer[597][15]" value="74b45065b29f2f49af26f2545e2682e0" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[597][15]">Inserting (2,5) into T</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>Deleting (1,5) from T</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>The question choices explore insertions into both tables and deletions from S. Since attribute <b>c</b> is a key for S, we cannot insert into S any tuple with first component 2, 3, 4, or 5. Since attribute <b>a</b> is a key for T, we cannot insert into T any tuple with first component 0, 1, 2, or 3. Since attribute <b>T.b</b> is a foreign key referencing <b>S.c</b>: (1) An insertion into T must have second component 2, 3, 4, or 5; (2) We cannot delete from S any tuple whose first component is a second component of T, that is, 4 or 5.</div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 5</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider the following SQL table declaration:
+<pre>   CREATE TABLE R (a INT, b INT, c INT, CHECK( [fill-in] ));
+</pre>
+Currently R contains the tuples (1,4,14), (2,3,15), and (3,3,16). Which of the following tuple-based CHECK constraints will cause the following insertion to be rejected?
+<pre>   INSERT INTO R VALUES (4,4,9);
+</pre>
+Note: When a tuple-based check is invoked for an insert and includes a subquery over the same table, the subquery is evaluated on the table <i>including</i> the inserted tuple.</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[222][]" id="answer[222][16]" value="964523b53b1f1f40fcbe4e70c95f8be1" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[222][16]">c &gt;= (SELECT SUM(b) FROM R)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[222][]" id="answer[222][17]" value="baf3b0c0a81bd5d4c523029896a9b85b" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[222][17]">b &gt; (SELECT AVG(a) FROM R)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[222][]" id="answer[222][18]" value="89a07ce74d0c9fa8542a5f12c308d19c" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[222][18]">a &lt;= ALL (SELECT c - b FROM R)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[222][]" id="answer[222][19]" value="ca282902bbb75a5825d2f1f4cab269ba" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[222][19]">c &lt;= ALL (SELECT b + c FROM R)</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>c &gt;= (SELECT SUM(b) FROM R)</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>The insertion is rejected when the CHECK condition is false. Note that an attribute mentioned outside of a subquery refers to the inserted tuple. Substititue the inserted tuple's values for those variables, and evaluate the expression over the table; make sure to include the inserted tuple in any subqueries. Thus, for example, SUM(b) currently has the value 14 (including the inserted tuple), COUNT(c) has the value 4, and the result of "SELECT b+c FROM R" is {18,18,19,13}. </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 6</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Here are SQL declarations for three tables R, S, and T:
+<pre>   CREATE TABLE R(e INT PRIMARY KEY, f INT);
+   CREATE TABLE S(c INT PRIMARY KEY, d INT REFERENCES R(e) ON DELETE CASCADE);
+   CREATE TABLE T(a INT PRIMARY KEY, b INT REFERENCES S(c) ON DELETE CASCADE);
+</pre>
+Suppose R(e,f) contains tuples (1,0), (2,4), (3,5), (4,3), and (5,7). Suppose S(c,d) contains tuples (1,5), (2,2), (3,3), (4,5), and (5,4). Suppose T(a,b) contains tuples (0,2), (1,2), (2,3), (3,4), and (4,4).  As a result of the referential integrity actions in the table declarations, certain deletions may cause additional deletions to be performed automatically.  Which of the following deletions, after all integrity actions, leaves table T empty?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[111][]" id="answer[111][20]" value="16506b6db7d8e25c4e52421e63af9195" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[111][20]">delete from R where f&lt;6</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[111][]" id="answer[111][21]" value="8eeaf4bdc71055be20aa2f747a7bae27" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[111][21]">delete from R where e=5 or f=5</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[111][]" id="answer[111][22]" value="776b405cdb4df52e827ee648bedbcec1" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[111][22]">delete from R where e=f-2</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[111][]" id="answer[111][23]" value="08f4bfd55db57fd900fb97c64fcde15b" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[111][23]">delete from R where e&lt;4</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>delete from R where e=f-2</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>T contains tuples (0,2), (1,2), (2,3), (3,4), and (4,4).  The removal of any of the following elements will result in the deletion of (0,2) from T: (0,2) from T, (2,2) from S, or (2,4) from R.  The removal of any of the following elements will result in the deletion of (1,2) from T: (1,2) from T, (2,2) from S, or (2,4) from R.  The removal of any of the following elements will result in the deletion of (2,3) from T: (2,3) from T, (3,3) from S, or (3,5) from R.  The removal of any of the following elements will result in the deletion of (3,4) from T: (3,4) from T, (4,5) from S, or (5,7) from R.  The removal of any of the following elements will result in the deletion of (4,4) from T: (4,4) from T, (4,5) from S, or (5,7) from R.  For T to be empty, any deletion must remove at least one element from each set.</div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 7</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Here are SQL declarations for three tables R, S, and T:
+<pre>   CREATE TABLE R(e INT PRIMARY KEY, f INT);
+   CREATE TABLE S(c INT PRIMARY KEY REFERENCES R(e) ON UPDATE CASCADE, d INT);
+   CREATE TABLE T(a INT PRIMARY KEY, b INT REFERENCES S(c) ON UPDATE CASCADE);
+</pre>
+Suppose R(e,f) contains tuples (1,1), (3,4), (5,6), and (7,2). Suppose S(c,d) contains tuples (1,7), (3,2), (5,1) and (7, 5). Suppose T(a,b) contains tuples (1,1), (2,5), (3,5), and (4,3).  As a result of the referential integrity actions in the table declarations, certain updates may cause additional updates to be performed automatically. Which of the following updates, after all integrity actions, leaves table T in a state such the sum of its <b>b</b> values is greater than 11 but less than 18?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[112][]" id="answer[112][24]" value="b520868e255107558dea1cf71b6c9aa7" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[112][24]">update R set e=e+3 where e&lt;3</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[112][]" id="answer[112][25]" value="074cb48be9c3fb5cee76206bb08e19c9" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[112][25]">update R set e=e-2 where f&lt;8</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[112][]" id="answer[112][26]" value="b1211fc1e97889b408c66a3a2c371627" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[112][26]">update R set e=e+1</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[112][]" id="answer[112][27]" value="823a9d5f3399dfe323bfe969e0fe37da" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[112][27]">update R set e=e-3 where e&gt;4</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>update R set e=e+3 where e&lt;3</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>With each update on attribute <b>e</b> in R(e,f), track if update is cascaded to the attribute <b>c</b> in S and finally to the attribute <b>b</b> in T(a,b).  In T(a,b) the <b>b</b> attribute of tuples (1,1), (2,5), (3,5), and (4,3) references the <b>c</b> attribute in S(c,d) of tuples (1,7), (5,1), (5,1), and (3,2) which references the <b>e</b> attribute in R(e,f) of tuples (1,1), (5,6), (5,6), (3,4).</div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 8</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Here are SQL declarations for two tables S and T:
+<pre>   CREATE TABLE S(c INT PRIMARY KEY, d INT);
+   CREATE TABLE T(a INT PRIMARY KEY, b INT, CHECK(b IN (SELECT c FROM S)));
+</pre>
+Suppose S(c,d) contains the four tuples: (2,10), (3,11), (4,12), (5,13). Suppose T(a,b) contains the four tuples: (0,4), (1,5), (2,4), (3,5). As a result of the constraints in the table declarations, certain insertions, deletions, and/or updates on S and T are disallowed. Which of the following modifications will <i>not</i> violate any constraint?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[598][]" id="answer[598][28]" value="c853ef3c3cf43068c20be80cc52b9f14" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[598][28]">Inserting (8,4) into T</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[598][]" id="answer[598][29]" value="a85cb3174d32bf9d8776780e20e8607e" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[598][29]">Updating (3,5) in T to be (3,1)</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[598][]" id="answer[598][30]" value="9f176fcebd08f83f2260e5eba34f212d" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[598][30]">Inserting (5,0) into T</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[598][]" id="answer[598][31]" value="972207d4b66e1408eebd9abb1b36e1f1" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[598][31]">Updating (0,4) in T to be (0,0)</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>Inserting (8,4) into T</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation"><strong>Question explanation</strong><br>The question choices explore insertions into both tables and updates to T. Since attribute <b>c</b> is a key for S, we cannot insert into S any tuple with first component 2, 3, 4, or 5. Since attribute <b>a</b> is a key for T, we cannot insert into T any tuple with first component 0, 1, 2, or 3. The CHECK constraint says: (1) An insertion into T must have second component 2, 3, 4, or 5; (2) An update to T must keep the value of the second component as one of 2, 3, 4, or 5.</div>
+</div>
+</div>
+</div></span>
+				</div> <!-- content -->
+
+            </div> <!-- content-body -->
+
+		</div> <!-- container -->
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4245877-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+
+
+
+
+</body></html>

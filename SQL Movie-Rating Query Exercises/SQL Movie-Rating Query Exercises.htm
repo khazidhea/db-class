@@ -1,0 +1,765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.db-class.org/course/quiz/feedback?submission_id=170522 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to Databases</title>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/main.css">
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/course-cs145.css">
+<script type="text/javascript" async="" src="./SQL Movie-Rating Query Exercises_files/ga.js"></script><script type="text/javascript" src="./SQL Movie-Rating Query Exercises_files/jquery.js"></script>
+<script type="text/javascript" src="./SQL Movie-Rating Query Exercises_files/MathJax.js"></script>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/quiz.css">
+
+
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script id="__isTpiViewExists"></script></head>
+
+    <body><div id="MathJax_Message" style="display: none; "></div>
+
+		<div id="container">
+
+			<div id="header" onclick="window.location=&#39;http://www.db-class.org/course/class/index&#39;">
+				<div id="header_links">
+                	<a href="http://www.db-class.org/course/auth/reportbug?info=919a1e3173b0119a2a5822d2f3804883fe99b3d6%7CnY7EE55AOgjVckmefPRleZfbeVw3JDNMJKRwXK7HFeT7DYHKjpDn%2BrVoPvORELTPAkqeQwWusltz0VHPpmxO85u6D955r8J6LWXUQm9Av7Z%2F9zH3Bdx6W1%2FkJ25n6Z7vpTXwsqRGzD%2BJgaUZYguJuWaXQ6CWYexIjt1BCUsSCSb%2Bzii4%2FzWi7Jjf6ADD8oEMK%2FYYev2RbCs%2BKkv5h7zjDVo2blckJHZoFGetEnQUy4U5Kbw3R42IXxLsEIVMRAdTWpdo2z0lYnPS%2FXBnWzi5o37ReaEGcGdeu5ACjN95aASdINvuRHHYW4ElJ2BJCQAHs0Ugrn6nn2Rw5%2BnKF8nbdZK3nmOQgFx1cVVoG0BRT3YGGWx%2BSvHjTQSQZAM6Tj5gdRY2%2BOL1%2FB7T1fRmLlqgV7M2yIuyQHIj3Gx6UjkDJL5%2BYhxVrUcquqCpJgdAQR%2Fc">Feedback</a>&nbsp;&nbsp;&nbsp;					<a href="http://www.db-class.org/course/class/preferences">Preferences</a>		            &nbsp;&nbsp;&nbsp;
+		            <a href="http://www.db-class.org/course/auth/logout">Logout</a>				</div>
+			</div>
+
+			<div id="content_body">
+
+				<div id="navbar">
+					<p class="navbar_item navbar_person">Azamat Galimzhanov</p>
+                    <p class="navbar_item navbar_home"><a href="http://www.db-class.org/course/class/index">Home</a></p>
+                    <p class="navbar_item navbar_progress"><a href="http://www.db-class.org/course/class/progress">Course Progress</a></p>					<p class="navbar_item navbar_video"><a href="http://www.db-class.org/course/video/list">Video Lectures</a></p>
+                    <p class="navbar_item navbar_quizzes"><a href="http://www.db-class.org/course/quiz/list?type=quiz">Assignments</a></p><p class="navbar_item navbar_midterms"><a href="http://www.db-class.org/course/quiz/list?type=midterm">Exams</a></p>
+					<p class="navbar_item navbar_qna" style="padding-bottom:20px"><a href="http://www.db-class.org/course/qna/index">Q&amp;A Forum</a></p>
+                    <p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index">Course Materials</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=schedule">Course Schedule</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=sample">Software Quick Guides</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=weeklyvids">Weekly Videos</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=faq">FAQ</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=optional-exercises">Optional Exercises</a></p>					<p class="navbar_item navbar_aboutus"><a href="http://www.db-class.org/course/aboutus/index">About Us</a></p>
+				</div>
+
+				<div id="content">
+
+                    
+<h1>SQL Movie-Rating Query Exercises - Feedback</h1><p>You achieved a score of <b>9.00</b> out of <b>9.00</b>.<br> Your answers, as well as our explanations, are shown below.</p><hr><span><div class="quiz_preamble">
+                  
+You've started a new movie-rating website, and you've been collecting data on reviewers' ratings of various movies. There's not much data yet, but you can still try out some interesting queries. Here's the schema:
+
+<br><br> 
+Movie ( mID, title, year, director )<br> 
+English: There is a movie with ID number <span style="font-style: italic;">mID</span>, a <span style="font-style: italic;">title</span>, a release <span style="font-style: italic;">year</span>, and a <span style="font-style: italic;">director</span>.<br><br> 
+Reviewer ( rID, name )<br> 
+English: The reviewer with ID number <span style="font-style: italic;">rID</span> 
+has a certain <span style="font-style: italic;">name</span>.<br><br> 
+Rating ( rID, mID, stars, ratingDate )<br> 
+English: The reviewer <span style="font-style: italic;">rID</span> 
+gave the movie <span style="font-style: italic;">mID</span> a number
+of <span style="font-style: italic;">stars</span> rating (1-5) on a
+certain <span style="font-style: italic;">ratingDate</span>.
+
+<br><br>
+Your queries will run over a small data set conforming to the schema.
+<a href="http://www.db-class.org/course/resources/index?page=moviedata" target="_blank">View the database</a>.
+(You can also <a href="http://s3.amazonaws.com/dbclass-resources/docs/rating.sql">download the schema and data</a>.)
+
+
+<br><br><b>Instructions:</b> 
+You are to write each of the following queries using SQL. Each question contains a link to a Query Workbench. The workbench will help you develop and debug your queries by running them using SQLite over the sample database. Once you're satisfied with your solution, click the "Keep This Solution" button in the Query Workbench  -- your query will be copied automatically to the box on this page for final submission.
+
+<br><br><b>Important Notes:</b>
+<ul>
+<li style="margin-top: 1em;">
+Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.
+</li>
+<li style="margin-top: 1em;">
+Unless a specific result ordering is asked for, you
+can return the result rows in any order.
+</li>
+<li style="margin-top: 1em;">
+<i>You are to translate the English into a SQL query that computes the desired result over all possible databases.</i> All we actually check is that your query gets the right answer on the small sample database. Thus, even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. (For example, if we ask for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question.) Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL. On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+</li>
+</ul>
+<br>
+You may perform these exercises as many times as you like, so we strongly encourage you to keep working with them until you complete the exercises with full credit. The exercises may continue to be worked after the deadline, but we will not use your scores.
+
+<br><br><b>NOTE: REMEMBER TO CLICK "Save and Submit" WHEN YOU ARE DONE!</b>
+<br>
+Please be patient as it does take time to check all of the exercises.
+<br><br>
+</div>
+<div class="quiz_question_group">
+<div class="quiz_question_group_preamble">
+            </div>
+<div class="quiz_question_group_questions">
+<div class="quiz_question">
+<div class="quiz_question_number">Question 1</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find the titles of all movies directed by Steven Spielberg. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=1">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[1]" id="answer[1]" rows="1" disabled="">SELECT title FROM movie WHERE director='Steven Spielberg'</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT title FROM movie WHERE director='Steven Spielberg'</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>E.T.</td></tr>
+<tr><td>Raiders of the Lost Ark</td></tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>E.T.</td></tr>
+<tr><td>Raiders of the Lost Ark</td></tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 2</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find all years that have a movie that received a rating of 4 or 5, and sort them in increasing order.<br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=2">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[2]" id="answer[2]" rows="1" disabled="">SELECT m.year FROM movie m, rating r WHERE r.stars &gt;= 4 AND r.mID=m.mID GROUP BY m.year ORDER BY m.year
+</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT m.year FROM movie m, rating r WHERE r.stars &gt;= 4 AND r.mID=m.mID GROUP BY m.year ORDER BY m.year
+</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>1937</td></tr>
+<tr><td>1939</td></tr>
+<tr><td>1981</td></tr>
+<tr><td>2009</td></tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>1937</td></tr>
+<tr><td>1939</td></tr>
+<tr><td>1981</td></tr>
+<tr><td>2009</td></tr>
+</tbody></table>
+<i>(Order matters)</i> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 3</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find the titles of all movies that have no ratings. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=3">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[3]" id="answer[3]" rows="1" disabled="">SELECT title FROM movie WHERE movie.mid not in (SELECT mid FROM rating)</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT title FROM movie WHERE movie.mid not in (SELECT mid FROM rating)</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>Star Wars</td></tr>
+<tr><td>Titanic</td></tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>Star Wars</td></tr>
+<tr><td>Titanic</td></tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 4</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Some reviewers didn't provide a date with their rating. Find the names of all reviewers who have ratings with a NULL value for the date. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=4">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[4]" id="answer[4]" rows="1" disabled="">SELECT name FROM reviewer, rating WHERE ratingDate is NULL AND reviewer.rid=rating.rid</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT name FROM reviewer, rating WHERE ratingDate is NULL AND reviewer.rid=rating.rid</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>Chris Jackson</td></tr>
+<tr><td>Daniel Lewis</td></tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr><td>Chris Jackson</td></tr>
+<tr><td>Daniel Lewis</td></tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 5</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write a query to return the ratings data in a more readable format: reviewer name, movie title, stars, and ratingDate. Also, sort the data, first by reviewer name, then by movie title, and lastly by number of stars.
+<br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=5">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[5]" id="answer[5]" rows="1" disabled="">SELECT rv.name, m.title, r.stars, r.ratingDate FROM movie m,rating r, reviewer rv WHERE m.mid=r.mid AND r.rid=rv.rid ORDER BY rv.name, m.title, r.stars</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT rv.name, m.title, r.stars, r.ratingDate FROM movie m,rating r, reviewer rv WHERE m.mid=r.mid AND r.rid=rv.rid ORDER BY rv.name, m.title, r.stars</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Ashley White</td>
+<td>E.T.</td>
+<td>3</td>
+<td>2011-01-02</td>
+</tr>
+<tr>
+<td>Brittany Harris</td>
+<td>Raiders of the Lost Ark</td>
+<td>2</td>
+<td>2011-01-30</td>
+</tr>
+<tr>
+<td>Brittany Harris</td>
+<td>Raiders of the Lost Ark</td>
+<td>4</td>
+<td>2011-01-12</td>
+</tr>
+<tr>
+<td>Brittany Harris</td>
+<td>The Sound of Music</td>
+<td>2</td>
+<td>2011-01-20</td>
+</tr>
+<tr>
+<td>Chris Jackson</td>
+<td>E.T.</td>
+<td>2</td>
+<td>2011-01-22</td>
+</tr>
+<tr>
+<td>Chris Jackson</td>
+<td>Raiders of the Lost Ark</td>
+<td>4</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>Chris Jackson</td>
+<td>The Sound of Music</td>
+<td>3</td>
+<td>2011-01-27</td>
+</tr>
+<tr>
+<td>Daniel Lewis</td>
+<td>Snow White</td>
+<td>4</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>Elizabeth Thomas</td>
+<td>Avatar</td>
+<td>3</td>
+<td>2011-01-15</td>
+</tr>
+<tr>
+<td>Elizabeth Thomas</td>
+<td>Snow White</td>
+<td>5</td>
+<td>2011-01-19</td>
+</tr>
+<tr>
+<td>James Cameron</td>
+<td>Avatar</td>
+<td>5</td>
+<td>2011-01-20</td>
+</tr>
+<tr>
+<td>Mike Anderson</td>
+<td>Gone with the Wind</td>
+<td>3</td>
+<td>2011-01-09</td>
+</tr>
+<tr>
+<td>Sarah Martinez</td>
+<td>Gone with the Wind</td>
+<td>2</td>
+<td>2011-01-22</td>
+</tr>
+<tr>
+<td>Sarah Martinez</td>
+<td>Gone with the Wind</td>
+<td>4</td>
+<td>2011-01-27</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Ashley White</td>
+<td>E.T.</td>
+<td>3</td>
+<td>2011-01-02</td>
+</tr>
+<tr>
+<td>Brittany Harris</td>
+<td>Raiders of the Lost Ark</td>
+<td>2</td>
+<td>2011-01-30</td>
+</tr>
+<tr>
+<td>Brittany Harris</td>
+<td>Raiders of the Lost Ark</td>
+<td>4</td>
+<td>2011-01-12</td>
+</tr>
+<tr>
+<td>Brittany Harris</td>
+<td>The Sound of Music</td>
+<td>2</td>
+<td>2011-01-20</td>
+</tr>
+<tr>
+<td>Chris Jackson</td>
+<td>E.T.</td>
+<td>2</td>
+<td>2011-01-22</td>
+</tr>
+<tr>
+<td>Chris Jackson</td>
+<td>Raiders of the Lost Ark</td>
+<td>4</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>Chris Jackson</td>
+<td>The Sound of Music</td>
+<td>3</td>
+<td>2011-01-27</td>
+</tr>
+<tr>
+<td>Daniel Lewis</td>
+<td>Snow White</td>
+<td>4</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>Elizabeth Thomas</td>
+<td>Avatar</td>
+<td>3</td>
+<td>2011-01-15</td>
+</tr>
+<tr>
+<td>Elizabeth Thomas</td>
+<td>Snow White</td>
+<td>5</td>
+<td>2011-01-19</td>
+</tr>
+<tr>
+<td>James Cameron</td>
+<td>Avatar</td>
+<td>5</td>
+<td>2011-01-20</td>
+</tr>
+<tr>
+<td>Mike Anderson</td>
+<td>Gone with the Wind</td>
+<td>3</td>
+<td>2011-01-09</td>
+</tr>
+<tr>
+<td>Sarah Martinez</td>
+<td>Gone with the Wind</td>
+<td>2</td>
+<td>2011-01-22</td>
+</tr>
+<tr>
+<td>Sarah Martinez</td>
+<td>Gone with the Wind</td>
+<td>4</td>
+<td>2011-01-27</td>
+</tr>
+</tbody></table>
+<i>(Order matters)</i> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 6</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    For all cases where the same reviewer rated the same movie twice and gave it a higher rating the second time, return the reviewer's name and the title of the movie. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=6">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[6]" id="answer[6]" rows="1" disabled="">SELECT rv.name, m.title FROM movie m, reviewer rv, rating r1, rating r2 
+WHERE 
+m.mid=r1.mid AND m.mid=r2.mid AND 
+rv.rid=r1.rid AND rv.rid=r2.rid AND
+r2.ratingDate &gt; r1.ratingDate AND
+r2.stars &gt; r1.stars</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT rv.name, m.title FROM movie m, reviewer rv, rating r1, rating r2 
+WHERE 
+m.mid=r1.mid AND m.mid=r2.mid AND 
+rv.rid=r1.rid AND rv.rid=r2.rid AND
+r2.ratingDate &gt; r1.ratingDate AND
+r2.stars &gt; r1.stars</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr>
+<td>Sarah Martinez</td>
+<td>Gone with the Wind</td>
+</tr></tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr>
+<td>Sarah Martinez</td>
+<td>Gone with the Wind</td>
+</tr></tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 7</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+For each movie that has at least one rating, find the highest number of stars that movie received. Return the movie title and number of stars. Sort by movie title.
+<br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=7">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[7]" id="answer[7]" rows="1" disabled="">SELECT m.title, max(r.stars) FROM movie m, rating r WHERE m.mid=r.mid GROUP BY m.title ORDER BY m.title</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT m.title, max(r.stars) FROM movie m, rating r WHERE m.mid=r.mid GROUP BY m.title ORDER BY m.title</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Avatar</td>
+<td>5</td>
+</tr>
+<tr>
+<td>E.T.</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Gone with the Wind</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Raiders of the Lost Ark</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Snow White</td>
+<td>5</td>
+</tr>
+<tr>
+<td>The Sound of Music</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Avatar</td>
+<td>5</td>
+</tr>
+<tr>
+<td>E.T.</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Gone with the Wind</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Raiders of the Lost Ark</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Snow White</td>
+<td>5</td>
+</tr>
+<tr>
+<td>The Sound of Music</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<i>(Order matters)</i> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 8</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    For each movie, return the title and the 'rating spread', that is, the difference between highest and lowest ratings given to that movie. Sort by rating spread from highest to lowest, then by movie title. <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=8">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[8]" id="answer[8]" rows="1" disabled="">SELECT m.title, max(r.stars) - min(r.stars) AS d FROM movie m, rating r WHERE m.mid=r.mid GROUP BY m.title ORDER BY d DESC</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT m.title, max(r.stars) - min(r.stars) AS d FROM movie m, rating r WHERE m.mid=r.mid GROUP BY m.title ORDER BY d DESC</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Avatar</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Gone with the Wind</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Raiders of the Lost Ark</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E.T.</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Snow White</td>
+<td>1</td>
+</tr>
+<tr>
+<td>The Sound of Music</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Avatar</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Gone with the Wind</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Raiders of the Lost Ark</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E.T.</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Snow White</td>
+<td>1</td>
+</tr>
+<tr>
+<td>The Sound of Music</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<i>(Order matters)</i> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 9</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                    Find the difference between the average rating of movies released before 1980 and the average rating of movies released after 1980. (Make sure to calculate the average rating for each movie, then the average of those averages for movies before 1980 and movies after. Don't just calculate the overall average rating before and after 1980.) <br><b>Note:</b> Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=63&question_id=9">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[9]" id="answer[9]" rows="1" disabled="">SELECT avgBefore80-avgAfter80 FROM
+
+(SELECT avg(before80) AS avgBefore80 FROM (SELECT avg(stars) AS before80
+FROM rating WHERE mid in (SELECT mid FROM movie WHERE year &lt; 1980) GROUP BY mid)),
+
+(SELECT avg(after80) AS avgAfter80 FROM (SELECT avg(stars) AS after80
+FROM rating WHERE mid in (SELECT mid FROM movie WHERE year &gt;= 1980) GROUP BY mid))</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>SELECT avgBefore80-avgAfter80 FROM
+
+(SELECT avg(before80) AS avgBefore80 FROM (SELECT avg(stars) AS before80
+FROM rating WHERE mid in (SELECT mid FROM movie WHERE year &lt; 1980) GROUP BY mid)),
+
+(SELECT avg(after80) AS avgAfter80 FROM (SELECT avg(stars) AS after80
+FROM rating WHERE mid in (SELECT mid FROM movie WHERE year &gt;= 1980) GROUP BY mid))</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr><td>0.0555555555556</td></tr></tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate"><tbody><tr><td>0.0555555555556</td></tr></tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample database. For example, if we asked for a complex condition that requires accessing all of the tables, but over our small data set in the end the condition is satisfied only by Star Wars, then the query "select title from Movie where title = 'Star Wars'" will be marked correct even though it doesn't reflect the actual question. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn SQL.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+</div>
+</div></span>
+				</div> <!-- content -->
+
+            </div> <!-- content-body -->
+
+		</div> <!-- container -->
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4245877-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+
+
+
+
+</body></html>

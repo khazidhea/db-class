@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.db-class.org/course/quiz/feedback?submission_id=326547 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to Databases</title>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/main.css">
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/course-cs145.css">
+<script type="text/javascript" async="" src="./XML Course-Catalog XPath and XQuery Exercises_files/ga.js"></script><script type="text/javascript" src="./XML Course-Catalog XPath and XQuery Exercises_files/jquery.js"></script>
+<script type="text/javascript" src="./XML Course-Catalog XPath and XQuery Exercises_files/MathJax.js"></script>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/quiz.css">
+
+
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script id="__isTpiViewExists"></script></head>
+
+    <body><div id="MathJax_Message" style="display: none; "></div>
+
+		<div id="container">
+
+			<div id="header" onclick="window.location=&#39;http://www.db-class.org/course/class/index&#39;">
+				<div id="header_links">
+                	<a href="http://www.db-class.org/course/auth/reportbug?info=e7fc9b2d1015e8d07ee89615922be03474b45779%7CnY7EE55AOgjVckmefPRlefBXraL%2B53oWXrBDV8ZLMGlxeMcyi1ZiqEF8TPzhdmLxbAFQqiPo333bUXHZp%2FDZCc8ttFqHlDzkY58vuIufN6FKZ%2FsR7DVY2UgH2Rp1UTLc68n%2FpIQS5jXuV%2FG7891h4jJcoBdk4Z0AWzyT4xdZdYMn88QZ91M4LG%2Boj94siBSOTgodcvl4S1grAhYVQlwinXGejuXoASMhYxSrA06ql5Hf1wNd2S%2B3AVTveSZtYPopGva9zNZahPx4PM7ZkWHQfGxdaqhBhAVRxJyiNpGH2szGhG%2BnrnJPq5NgYkWLEgloFDfoEQURQXYZ5R36us3q%2BH3AB2XmH5QSmEQPafyVvnskJnLUKaBhDkdwINs11iexC9dbVK8OQr4KKyBWD6AFOIjI9Y90Bq183G6QRWtRGWMsdtBvYCAKG631XSIxO5Bo">Feedback</a>&nbsp;&nbsp;&nbsp;					<a href="http://www.db-class.org/course/class/preferences">Preferences</a>		            &nbsp;&nbsp;&nbsp;
+		            <a href="http://www.db-class.org/course/auth/logout">Logout</a>				</div>
+			</div>
+
+			<div id="content_body">
+
+				<div id="navbar">
+					<p class="navbar_item navbar_person">Azamat Galimzhanov</p>
+                    <p class="navbar_item navbar_home"><a href="http://www.db-class.org/course/class/index">Home</a></p>
+                    <p class="navbar_item navbar_progress"><a href="http://www.db-class.org/course/class/progress">Course Progress</a></p>					<p class="navbar_item navbar_video"><a href="http://www.db-class.org/course/video/list">Video Lectures</a></p>
+                    <p class="navbar_item navbar_quizzes"><a href="http://www.db-class.org/course/quiz/list?type=quiz">Assignments</a></p><p class="navbar_item navbar_midterms"><a href="http://www.db-class.org/course/quiz/list?type=midterm">Exams</a></p>
+					<p class="navbar_item navbar_qna" style="padding-bottom:20px"><a href="http://www.db-class.org/course/qna/index">Q&amp;A Forum</a></p>
+                    <p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index">Course Materials</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=schedule">Course Schedule</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=sample">Software Quick Guides</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=weeklyvids">Weekly Videos</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=faq">FAQ</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=optional-exercises">Optional Exercises</a></p>					<p class="navbar_item navbar_aboutus"><a href="http://www.db-class.org/course/aboutus/index">About Us</a></p>
+				</div>
+
+				<div id="content">
+
+                    
+<h1>XML Course-Catalog XPath and XQuery Exercises - Feedback</h1><p>You achieved a score of <b>9.00</b> out of <b>9.00</b>.<br> Your answers, as well as our explanations, are shown below.</p><hr><span><div class="quiz_preamble">
+                                
+In these exercises, you will be working with a small XML data set drawn from the Stanford course catalog. There are multiple departments, each with a department chair, some courses, and professors and/or lecturers who teach courses.
+The XML data is <a href="http://s3.amazonaws.com/dbclass-resources/docs/courses-noID.xml" target="_blank">here</a>.
+
+<br><br><b>Instructions:</b> 
+You are to write each of the following queries using either XPath or XQuery. Each question contains a link to a Query Workbench. The workbench will help you develop and debug your queries by running them using Saxon over the sample data set. Once you're satisfied with your solution, click the "Keep This Solution" button in the Query Workbench  -- your query will be copied automatically to the box on this page for final submission.
+<br><br>
+You may perform these exercises as many times as you like, so we strongly encourage you to keep working with them until you complete the exercises with full credit. The exercises may continue to be worked after the deadline, but we will not use your scores.
+<br><br><b>NOTE: REMEMBER TO CLICK "Save and Submit" WHEN YOU ARE DONE!</b>
+<br>
+Please be patient as it does take time to check all of the exercises. 
+<br><br>
+</div>
+<div class="quiz_question_group">
+<div class="quiz_question_group_preamble">
+            </div>
+<div class="quiz_question_group_questions">
+<div class="quiz_question">
+<div class="quiz_question_number">Question 1</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return all Title elements (of both departments and courses).<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=1">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[1]" id="answer[1]" rows="1" disabled=""> doc("courses.xml")/Course_Catalog/Department//Title</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td> doc("courses.xml")/Course_Catalog/Department//Title</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Computer Science&lt;/Title&gt;
+  &lt;Title&gt;Programming Methodology&lt;/Title&gt;
+  &lt;Title&gt;Programming Abstractions&lt;/Title&gt;
+  &lt;Title&gt;Computer Organization and Systems&lt;/Title&gt;
+  &lt;Title&gt;Introduction to Probability for Computer Scientists&lt;/Title&gt;
+  &lt;Title&gt;From Languages to Information&lt;/Title&gt;
+  &lt;Title&gt;Compilers&lt;/Title&gt;
+  &lt;Title&gt;Introduction to Databases&lt;/Title&gt;
+  &lt;Title&gt;Artificial Intelligence: Principles and Techniques&lt;/Title&gt;
+  &lt;Title&gt;Structured Probabilistic Models: Principles and Techniques&lt;/Title&gt;
+  &lt;Title&gt;Machine Learning&lt;/Title&gt;
+  &lt;Title&gt;Electrical Engineering&lt;/Title&gt;
+  &lt;Title&gt;Digital Systems I&lt;/Title&gt;
+  &lt;Title&gt;Digital Systems II&lt;/Title&gt;
+  &lt;Title&gt;Linguistics&lt;/Title&gt;
+  &lt;Title&gt;From Languages to Information&lt;/Title&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Computer Science&lt;/Title&gt;
+  &lt;Title&gt;Programming Methodology&lt;/Title&gt;
+  &lt;Title&gt;Programming Abstractions&lt;/Title&gt;
+  &lt;Title&gt;Computer Organization and Systems&lt;/Title&gt;
+  &lt;Title&gt;Introduction to Probability for Computer Scientists&lt;/Title&gt;
+  &lt;Title&gt;From Languages to Information&lt;/Title&gt;
+  &lt;Title&gt;Compilers&lt;/Title&gt;
+  &lt;Title&gt;Introduction to Databases&lt;/Title&gt;
+  &lt;Title&gt;Artificial Intelligence: Principles and Techniques&lt;/Title&gt;
+  &lt;Title&gt;Structured Probabilistic Models: Principles and Techniques&lt;/Title&gt;
+  &lt;Title&gt;Machine Learning&lt;/Title&gt;
+  &lt;Title&gt;Electrical Engineering&lt;/Title&gt;
+  &lt;Title&gt;Digital Systems I&lt;/Title&gt;
+  &lt;Title&gt;Digital Systems II&lt;/Title&gt;
+  &lt;Title&gt;Linguistics&lt;/Title&gt;
+  &lt;Title&gt;From Languages to Information&lt;/Title&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 2</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return last names of all department chairs.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=2">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[2]" id="answer[2]" rows="1" disabled=""> doc("courses.xml")/Course_Catalog/Department/Chair/Professor/Last_Name</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td> doc("courses.xml")/Course_Catalog/Department/Chair/Professor/Last_Name</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Last_Name&gt;Widom&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Horowitz&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Levin&lt;/Last_Name&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Last_Name&gt;Widom&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Horowitz&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Levin&lt;/Last_Name&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 3</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return titles of courses with enrollment greater than 500.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=3">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[3]" id="answer[3]" rows="1" disabled=""> doc("courses.xml")/Course_Catalog/Department/Course[@Enrollment&gt;500]/Title</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td> doc("courses.xml")/Course_Catalog/Department/Course[@Enrollment&gt;500]/Title</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Programming Methodology&lt;/Title&gt;
+  &lt;Title&gt;Programming Abstractions&lt;/Title&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Programming Methodology&lt;/Title&gt;
+  &lt;Title&gt;Programming Abstractions&lt;/Title&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 4</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return titles of departments that have some course that takes "CS106B" as a prerequisite.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=4">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[4]" id="answer[4]" rows="1" disabled=""> doc("courses.xml")/Course_Catalog/Department[Course/Prerequisites/Prereq = "CS106B"]/Title</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td> doc("courses.xml")/Course_Catalog/Department[Course/Prerequisites/Prereq = "CS106B"]/Title</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Computer Science&lt;/Title&gt;
+  &lt;Title&gt;Electrical Engineering&lt;/Title&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Computer Science&lt;/Title&gt;
+  &lt;Title&gt;Electrical Engineering&lt;/Title&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 5</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return last names of all professors or lecturers who use a middle initial. Don't worry about eliminating duplicates.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=5">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[5]" id="answer[5]" rows="1" disabled="">doc("courses.xml")/Course_Catalog//*/Middle_Initial/parent::*/Last_Name</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>doc("courses.xml")/Course_Catalog//*/Middle_Initial/parent::*/Last_Name</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Last_Name&gt;Cain&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Cain&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Aiken&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Horowitz&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Dally&lt;/Last_Name&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Last_Name&gt;Cain&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Cain&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Aiken&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Horowitz&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Dally&lt;/Last_Name&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 6</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return the count of courses that have a cross-listed course (i.e., that have "Cross-listed" in their description).<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=6">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[6]" id="answer[6]" rows="1" disabled="">count(doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, "Cross-listed")])</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>count(doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, "Cross-listed")])</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  2
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>          2    
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 7</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return the average enrollment of all courses in the CS department.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=7">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[7]" id="answer[7]" rows="1" disabled="">avg(doc("courses.xml")/Course_Catalog/Department[@Code="CS"]/Course/@Enrollment)</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>avg(doc("courses.xml")/Course_Catalog/Department[@Code="CS"]/Course/@Enrollment)</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  336
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>          336    
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 8</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return last names of instructors teaching at least one course that has "system" in its description and enrollment greater than 100.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=8">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[8]" id="answer[8]" rows="1" disabled="">doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, "system") and @Enrollment&gt;100]//Last_Name</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, "system") and @Enrollment&gt;100]//Last_Name</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Last_Name&gt;Zelenski&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Widom&lt;/Last_Name&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Last_Name&gt;Zelenski&lt;/Last_Name&gt;
+  &lt;Last_Name&gt;Widom&lt;/Last_Name&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 9</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+                     Return the title of the course with the largest enrollment.<br><b>Note:</b> Your solution will need to reference <b><i>doc("courses.xml")</i></b> to access the data.<br><i>(This problem is quite challenging; congratulations if you get it right.)<i><br></i></i>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=70&question_id=9">Query Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[9]" id="answer[9]" rows="1" disabled="">doc("courses.xml")/Course_Catalog/Department/Course[@Enrollment=max(doc("courses.xml")/Course_Catalog/Department/Course/@Enrollment)]/Title</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>doc("courses.xml")/Course_Catalog/Department/Course[@Enrollment=max(doc("courses.xml")/Course_Catalog/Department/Course/@Enrollment)]/Title</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Your Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Programming Methodology&lt;/Title&gt;
+</font> <br>Expected Query Result: <font style="font-size:90%;"><pre></pre>  &lt;Title&gt;Programming Methodology&lt;/Title&gt;
+</font> 
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your query does not correctly reflect the problem at hand. All we check is that your query gets the right answer on the small sample data set. For example, if we asked for a complex condition, but over our small data set in the end the condition is satisfied only by CS106A, then the query "doc('courses.xml')//Course[@Number='CS106A']" will be marked correct even though it doesn't reflect the actual question. "Cheating" in this fashion will get you a high score on the exercises, but it won't help you learn XPath,  XQuery, or XSLT.
+                </div>
+</div>
+</div>
+</div></span>
+				</div> <!-- content -->
+
+            </div> <!-- content-body -->
+
+		</div> <!-- container -->
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4245877-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+
+
+
+
+</body></html>
