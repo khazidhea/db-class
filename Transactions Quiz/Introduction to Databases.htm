@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.db-class.org/course/quiz/feedback?submission_id=393406 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to Databases</title>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/main.css">
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/course-cs145.css">
+<script type="text/javascript" async="" src="./Introduction to Databases_files/ga.js"></script><script type="text/javascript" src="./Introduction to Databases_files/jquery.js"></script>
+<script type="text/javascript" src="./Introduction to Databases_files/MathJax.js"></script>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/quiz.css">
+
+
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script id="__isTpiViewExists"></script></head>
+
+    <body><div id="MathJax_Message" style="display: none; "></div>
+
+		<div id="container">
+
+			<div id="header" onclick="window.location=&#39;http://www.db-class.org/course/class/index&#39;">
+				<div id="header_links">
+                	<a href="http://www.db-class.org/course/auth/reportbug?info=51c93cad99e88e33799adab32a6bd76f1ce51702%7CnY7EE55AOgjVckmefPRleWF1iVSy2C3HolRAxtes49SgUQWOs59wNDcvG02nWfVh%2F%2FMNhHpcfpRhdAb77M5AGlPqdsY4GV%2FMOrRdcuTFS2VNzgp5TMazVT3My%2FmQ1H7CzBLcSZORRTnq%2BeT51cIJjPxOuksAfzKlUpLCqAyxGk2RD0NOgerRwddmdZRrSbXChZnVnvpGwl42hpr6B4MLIoC7zePivnOzWo80HpAu0aIhDBhoKX0Z%2FNMhzd5EqgjFdLUL6irVqnrsKwlLCEFXa8jUVpiKqKIFyVUbqhT77JJT9xn%2F6kblPOkAt%2Fr76KCaXezDzM0NrQ1JVz7sHDY6JL%2B%2F573uzfq%2FK5gCneSgogA%2FfdogGul8zJgozakZ6wzAeOQSUC%2B3Z9DAOJvrXKOJ%2B9vMrX58cR2jR1Lq29OOvBLk7EniUzatp617ylUrcbwN">Feedback</a>&nbsp;&nbsp;&nbsp;					<a href="http://www.db-class.org/course/class/preferences">Preferences</a>		            &nbsp;&nbsp;&nbsp;
+		            <a href="http://www.db-class.org/course/auth/logout">Logout</a>				</div>
+			</div>
+
+			<div id="content_body">
+
+				<div id="navbar">
+					<p class="navbar_item navbar_person">Azamat Galimzhanov</p>
+                    <p class="navbar_item navbar_home"><a href="http://www.db-class.org/course/class/index">Home</a></p>
+                    <p class="navbar_item navbar_progress"><a href="http://www.db-class.org/course/class/progress">Course Progress</a></p>					<p class="navbar_item navbar_video"><a href="http://www.db-class.org/course/video/list">Video Lectures</a></p>
+                    <p class="navbar_item navbar_quizzes"><a href="http://www.db-class.org/course/quiz/list?type=quiz">Assignments</a></p><p class="navbar_item navbar_midterms"><a href="http://www.db-class.org/course/quiz/list?type=midterm">Exams</a></p>
+					<p class="navbar_item navbar_qna" style="padding-bottom:20px"><a href="http://www.db-class.org/course/qna/index">Q&amp;A Forum</a></p>
+                    <p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index">Course Materials</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=schedule">Course Schedule</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=sample">Software Quick Guides</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=weeklyvids">Weekly Videos</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=faq">FAQ</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=optional-exercises">Optional Exercises</a></p>					<p class="navbar_item navbar_aboutus"><a href="http://www.db-class.org/course/aboutus/index">About Us</a></p>
+				</div>
+
+				<div id="content">
+
+                    
+<h1>Transactions Quiz - Feedback</h1>
+
+<p>You achieved a score of <b>3.00</b> out of <b>3.00</b>.<br> Your answers, as well as our explanations, are shown below.</p><hr><span><div class="quiz_preamble">
+        <p>
+        This quiz uses an approach pioneered and patented by the Gradiance Corporation. Each multiple-choice quiz problem is based on a "root question," from which the system generates different correct and incorrect choices each time you take the quiz. Thus, you can test yourself on the same material multiple times. We strongly urge you to continue testing on each topic until you complete the quiz with full credit at least once. Although we record all scores, we only use the highest score you achieve.
+        </p>
+
+        <p>
+        After submitting your selections the system will score your quiz, and for incorrect answers will provide an "explanation" (sometimes for correct ones too). These explanations should help you get the right answer the next time around. To prevent rapid-fire guessing, the system enforces a minimum of 10 minutes between each submission of solutions.
+        </p>
+
+        <p>
+        If the quiz is taken after the deadline, in addition to hint-like explanations for specific choices, the system will provide more general explanations for each problem. For this reason, after-deadline quiz scores are penalized 50% (and will only be kept if the new score exceeds previous scores for the same quiz).
+        </p>
+    
+  </div>
+<div class="quiz_question_group">
+<div class="quiz_question_group_preamble"></div>
+<div class="quiz_question_group_questions">
+<div class="quiz_question">
+<div class="quiz_question_number">Question 1</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider tables R(A) and S(B) and the following transaction T1:
+<pre>T1: set transaction isolation level repeatable read;
+    select * from R;
+    select * from R;
+    select * from S;
+    commit;
+</pre>
+Suppose table R initially has one tuple with value A=3 and table S initially has one tuple with value B=6. Consider the following possible transactions T2, executed around the same time as T1. Which one of them can cause the two transactions to exhibit nonserializable behavior?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[223][]" id="answer[223][0]" value="a7100d2e130c18d98d9941899b6110c6" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[223][0]">T2: set transaction isolation level serializable; delete from R where A=3; commit;</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[223][]" id="answer[223][1]" value="93a9136cc3dfe210690733e418da544b" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[223][1]">T2: set transaction isolation level serializable; insert into S values (5); delete from R where A=2; commit;</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[223][]" id="answer[223][2]" value="62c8ed87a1cf6c168e82a4791deb9115" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[223][2]">T2: set transaction isolation level serializable; update S set B=5; delete from R; commit;</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[223][]" id="answer[223][3]" value="6aee098194ff8482e143877708e07567" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[223][3]">T2: set transaction isolation level serializable; delete from S; insert into S values (6); commit;</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>T2: set transaction isolation level serializable; update S set B=5; delete from R; commit;</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<span></span>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 2</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider a relation R(x) containing integers. Suppose Alice runs a transaction that is a query:
+<pre>   select sum(x) from R;
+   commit;
+</pre>
+Betty's transaction is a sequence of inserts:
+<pre>   insert into R values (10);
+   insert into R values (20);
+   insert into R values (30);
+   commit;
+</pre>
+Carol's transaction is a sequence of deletes:
+<pre>   delete from R where x=30;
+   delete from R where x=20;
+   commit;
+</pre>
+Before any of these transactions execute, the sum of the integers in R is 1000, and none of the integers are 10, 20, or 30. If Alice's, Betty's, and Carol's transactions run at about the same
+time, and each runs under isolation level READ COMMITTED, which of the following sums could be produced by Alice's transaction?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[608][]" id="answer[608][4]" value="1e48c4420b7073bc11916c6c1de226bb" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[608][4]">1010</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[608][]" id="answer[608][5]" value="65cc2c8205a05d7379fa3a6386f710e1" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[608][5]">1020</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[608][]" id="answer[608][6]" value="89fcd07f20b6785b92134bd6c1d0fa42" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[608][6]">970</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[608][]" id="answer[608][7]" value="a3d68b461bd9d3533ee1dd3ce4628ed4" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[608][7]">950</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>1010</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<span></span>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 3</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">Consider a relation R(x) containing integers. Suppose Alice runs a transaction that is a query:
+<pre>   select sum(x) from R;
+   commit;
+</pre>
+Betty's transaction is a sequence of inserts:
+<pre>   insert into R values (10);
+   insert into R values (20);
+   insert into R values (30);
+   commit;
+</pre>
+Carol's transaction is a sequence of deletes:
+<pre>   delete from R where x=30;
+   delete from R where x=20;
+   commit;
+</pre>
+Before any of these transactions execute, the sum of the integers in R is 1000, and none of these integers are 10, 20, or 30.  Alice's, Betty's, and Carol's transactions run at about the same time. Which of the following sums could be returned by Alice's transaction if all three transactions run under isolation level READ UNCOMMITTED, but not if all three run under isolation level SERIALIZABLE?</div>
+<div class="quiz_options">
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[609][]" id="answer[609][8]" value="a3d68b461bd9d3533ee1dd3ce4628ed4" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[609][8]">950</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[609][]" id="answer[609][9]" value="65cc2c8205a05d7379fa3a6386f710e1" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[609][9]">1020</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[609][]" id="answer[609][10]" value="a9b7ba70783b617e9998dc4dd82eb3c5" type="radio" disabled=""><span class="quiz_option_text"><label for="answer[609][10]">1000</label></span>
+</div>
+<div class="quiz_option">
+<input class="quiz_option_selector" name="answer[609][]" id="answer[609][11]" value="537d9b6c927223c796cac288cced29df" type="radio" checked="" disabled=""><span class="quiz_option_text"><label for="answer[609][11]">1040</label></span>
+</div>
+</div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>1040</td>
+<td>1.00</td>
+<td></td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<span></span>
+</div>
+</div>
+</div></span>
+				</div> <!-- content -->
+
+            </div> <!-- content-body -->
+
+		</div> <!-- container -->
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4245877-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+
+
+
+
+</body></html>

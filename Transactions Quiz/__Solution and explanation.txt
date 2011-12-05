@@ -1,0 +1,94 @@
+1--------------------------------------------------
+
+
+Question:
+
+Consider tables R(A) and S(B) and the following transaction T1:
+T1: set transaction isolation level repeatable read;
+    select * from R;
+    select * from R;
+    select * from S;
+    commit;
+Suppose table R initially has one tuple with value A=3 and table S initially has one tuple with value B=6. Consider the following possible transactions T2, executed around the same time as T1. Which one of them can cause the two transactions to exhibit nonserializable behavior?
+
+
+Answer:
+
+T2: set transaction isolation level serializable; update S set B=5; delete from R; commit;
+
+
+Explanation:
+
+To exhibit nonserializable behavior we need to modify data between to reads from R.
+
+
+2--------------------------------------------------
+
+
+Consider a relation R(x) containing integers. Suppose Alice runs a transaction that is a query:
+   select sum(x) from R;
+   commit;
+Betty's transaction is a sequence of inserts:
+   insert into R values (10);
+   insert into R values (20);
+   insert into R values (30);
+   commit;
+Carol's transaction is a sequence of deletes:
+   delete from R where x=30;
+   delete from R where x=20;
+   commit;
+Before any of these transactions execute, the sum of the integers in R is 1000, and none of the integers are 10, 20, or 30. If Alice's, Betty's, and Carol's transactions run at about the same time, and each runs under isolation level READ COMMITTED, which of the following sums could be produced by Alice's transaction?
+
+
+Answer:
+
+1040 
+
+
+Explanation:
+
+The 1040 happens like this: C1 B1 B2 C2 B3. More details:
+
+delete 30
+insert 10
+insert 20
+inerrt 30
+commit    - sum is 1060 now
+delete 20
+commit    - sum is 1040 now
+
+
+
+3--------------------------------------------------
+
+
+Consider a relation R(x) containing integers. Suppose Alice runs a transaction that is a query:
+   select sum(x) from R;
+   commit;
+Betty's transaction is a sequence of inserts:
+   insert into R values (10);
+   insert into R values (20);
+   insert into R values (30);
+   commit;
+Carol's transaction is a sequence of deletes:
+   delete from R where x=30;
+   delete from R where x=20;
+   commit;
+Before any of these transactions execute, the sum of the integers in R is 1000, and none of these integers are 10, 20, or 30. Alice's, Betty's, and Carol's transactions run at about the same time. Which of the following sums could be returned by Alice's transaction if all three transactions run under isolation level READ UNCOMMITTED, but not if all three run under isolation level SERIALIZABLE?
+
+
+Answer:
+
+1040 
+
+
+Explanation:
+
+When serializable, system runs all the transactions as if they are all executing in order, so we can get 3 different outcomes only (1000, 1010, 1060):
+
+A B C (select, insert, delete) gives us 1000
+B C A (insert, delete, select) gives us 1010
+B A C (insert, select, delete) gives us 1060
+
+
+On the other hand read uncommited gives us a lot of different outcomes. In this case 1040 is the one that fits.
