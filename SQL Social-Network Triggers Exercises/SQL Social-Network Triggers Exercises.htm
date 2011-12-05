@@ -1,0 +1,2192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.db-class.org/course/quiz/feedback?submission_id=389807 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Introduction to Databases</title>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/main.css">
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/course-cs145.css">
+<script type="text/javascript" async="" src="./SQL Social-Network Triggers Exercises_files/ga.js"></script><script type="text/javascript" src="./SQL Social-Network Triggers Exercises_files/jquery.js"></script>
+<script type="text/javascript" src="./SQL Social-Network Triggers Exercises_files/MathJax.js"></script>
+
+<link rel="stylesheet" href="http://www.db-class.org/course/assets/berry/css/quiz.css">
+
+
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script id="__isTpiViewExists"></script></head>
+
+    <body><div id="MathJax_Message" style="display: none; "></div>
+
+		<div id="container">
+
+			<div id="header" onclick="window.location=&#39;http://www.db-class.org/course/class/index&#39;">
+				<div id="header_links">
+                	<a href="http://www.db-class.org/course/auth/reportbug?info=a6bfa00f28769eadb81eaae594dc077728d3c9f3%7CnY7EE55AOgjVckmefPRleSxvzOvz8x29%2BGeXOJ2G6pl8u6JZWQLi0%2BZPDCX%2BbA33FoAkgFph2DGN%2FyA%2Bc5vVNspPaGpZkb2OH8wyPksi96lSOlqWSdqo9Y1fatc0WGUGuBsavERpFfdBA2Y%2BQaEEdZdZdpT9EBkeRPWy8r4WxW6CI%2F9fvZ5%2FPIX0bQ6CxL3jnz64JYh%2FKOzO64GrMLyHp3g%2FdFZ4a7zYqMJwBgDq8wGTFGrdr17Q%2FFL6LzvPmZJPFpKvwd1ze7kvtnJ0MoOJ8vTz%2FfTZkG0liHxiiJzDBrtSgMxtFYotsiE0j63MdEuhMZRkgkeLarYgmfYEoESQlFMcaafMRKNlbmFATyS3sIxfs6lAdmHpadjk25q1HNTZJg7smz6svU%2FR2xWSV4aV97h2sNCeIHpwFYEUzQFHt1qXsAVOIlyt3SSWZ1%2BrOqxg">Feedback</a>&nbsp;&nbsp;&nbsp;					<a href="http://www.db-class.org/course/class/preferences">Preferences</a>		            &nbsp;&nbsp;&nbsp;
+		            <a href="http://www.db-class.org/course/auth/logout">Logout</a>				</div>
+			</div>
+
+			<div id="content_body">
+
+				<div id="navbar">
+					<p class="navbar_item navbar_person">Azamat Galimzhanov</p>
+                    <p class="navbar_item navbar_home"><a href="http://www.db-class.org/course/class/index">Home</a></p>
+                    <p class="navbar_item navbar_progress"><a href="http://www.db-class.org/course/class/progress">Course Progress</a></p>					<p class="navbar_item navbar_video"><a href="http://www.db-class.org/course/video/list">Video Lectures</a></p>
+                    <p class="navbar_item navbar_quizzes"><a href="http://www.db-class.org/course/quiz/list?type=quiz">Assignments</a></p><p class="navbar_item navbar_midterms"><a href="http://www.db-class.org/course/quiz/list?type=midterm">Exams</a></p>
+					<p class="navbar_item navbar_qna" style="padding-bottom:20px"><a href="http://www.db-class.org/course/qna/index">Q&amp;A Forum</a></p>
+                    <p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index">Course Materials</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=schedule">Course Schedule</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=sample">Software Quick Guides</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=weeklyvids">Weekly Videos</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=faq">FAQ</a></p><p class="navbar_item navbar_resources"><a href="http://www.db-class.org/course/resources/index?page=optional-exercises">Optional Exercises</a></p>					<p class="navbar_item navbar_aboutus"><a href="http://www.db-class.org/course/aboutus/index">About Us</a></p>
+				</div>
+
+				<div id="content">
+
+                    
+<h1>SQL Social-Network Triggers Exercises - Feedback</h1><p>You achieved a score of <b>6.00</b> out of <b>6.00</b>.<br> Your answers, as well as our explanations, are shown below.</p><hr><span><div class="quiz_preamble">
+                  
+Students at your hometown high school have decided to organize their social network using databases. So far, they have collected information about sixteen students in four grades, 9-12. Here's the schema:
+
+<br><br> 
+Highschooler ( ID, name, grade )<br>
+English: There is a high school student with unique <span style="font-style: italic;">ID</span> and a given <span style="font-style: italic;">first name</span> in a certain <span style="font-style: italic;">grade</span>.<br><br>
+Friend ( ID1, ID2 )<br>
+English: The student with <span style="font-style: italic;">ID1</span>
+is friends with the student with <span style="font-style: italic;">ID2</span>.
+Friendship is mutual, so if (123, 456) is in the Friend table, so is
+(456, 123). <br><br>
+Likes ( ID1, ID2 )<br>
+English: The student with <span style="font-style: italic;">ID1</span>
+likes the student with <span style="font-style: italic;">ID2</span>.
+Liking someone is not necessarily mutual, so if (123, 456) is in the
+Likes table, there is no guarantee that (456, 123) is also present.
+
+<br><br>
+Your triggers will run over a small data set conforming to the schema.
+<a href="http://www.db-class.org/course/resources/index?page=socialdata" target="_blank">View the database</a>.
+(You can also <a href="http://s3.amazonaws.com/dbclass-resources/docs/social.sql">download the schema and data</a>.)
+<br><br>
+For your convenience, here is a graph showing the various
+connections
+between the people in our database. 9th graders are blue, 10th
+graders
+are green, 11th graders are yellow, and 12th graders are purple.
+Undirected black edges indicate friendships, and directed red edges
+indicate that one person
+likes another person.<br><br><div style="text-align: center;">
+<img style="width: 494px; height:
+    352px;" alt="Social graph" title="Social graph" src="./SQL Social-Network Triggers Exercises_files/social.png"><br>
+</div>
+
+<br><br><b>Instructions:</b> 
+You are to solve each of the following problems by writing one or more triggers. Each question contains a link to a Trigger Workbench, which will help you develop and debug your triggers. The workbench creates triggers using SQLite on the original state of the sample database. It then performs a data modification statement that should activate the trigger(s), runs a query to check that the final database state is correct, and restores the database to its original state. Once you're satisfied with your solution, click the "Keep This Solution" button in the Trigger Workbench -- your trigger(s) will be copied automatically to the box on this page for final submission. 
+
+<br><br><b>New! "Sandbox" for Data Exploration:</b> 
+You may find debugging incorrect solutions to these exercises to be more challenging than for previous types of exercises. To help, we've added a special 
+Command Workbench
+for exploring the data, independent of a specific question. It gives you a platform that can be used on the side to help debug your solutions to the actual questions. The Command Workbench allows you to submit a sequence of SQL queries and modifications. It displays the results and does not check your answers against a correct solution. Launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>.
+
+<br><br><b>Important Notes:</b>
+<ul>
+<li style="margin-top: 1em;">
+Our backend system is SQLite, so you must conform to the trigger constructs supported by SQLite. A guide to SQLite triggers is <a href="http://www.sqlite.org/lang_createtrigger.html" target="_blank">here</a>, although you may find it easier to start from the triggers used in the video demonstrations; scripts are available from the <a href="http://www.db-class.org/course/resources/index" target="_blank">Course Materials</a> page.
+</li>
+<li style="margin-top: 1em;">
+In the workbench and the grading program, triggers are executed with recursive triggering disabled ("recursive_triggers=off").
+</li>
+<li style="margin-top: 1em;">
+<i>You are to translate the English into one or more triggers that perform the desired actions for all possible databases and modifications.</i>
+All we actually check is that the verification query gets the right answer on the small sample database. Thus, even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. Circumventing the system in this fashion will get you a high score on the exercises, but it won't help you learn about triggers. On the other hand, an incorrect attempt at a general solution is unlikely to behave correctly, so you shouldn't be led astray by our checking system.
+</li>
+</ul>
+<br>
+You may perform these exercises as many times as you like, so we strongly encourage you to keep working with them until you complete the exercises with full credit. The exercises may continue to be worked after the deadline, but we will not use your scores.
+
+<br><br><b>NOTE: REMEMBER TO CLICK "Save and Submit" WHEN YOU ARE DONE!</b>
+<br>
+Please be patient as it does take time to check all of the exercises.
+<br><br>
+</div>
+<div class="quiz_question_group">
+<div class="quiz_question_group_preamble">
+            </div>
+<div class="quiz_question_group_questions">
+<div class="quiz_question">
+<div class="quiz_question_number">Question 1</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write a trigger that makes new students named 'Friendly' automatically like everyone else in their grade.
+That is, after the trigger runs, we should have ('Friendly', A) in the Likes table for every other Highschooler A in the same grade as 'Friendly'.
+<ul>
+<li>
+Your triggers are created in SQLite, so you must conform to the trigger constructs supported by SQLite.
+</li>
+<li>
+Remember you can launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>
+to explore the data set on the side as you develop your solution.
+</li>
+</ul>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=1">Trigger Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[1]" id="answer[1]" rows="1" disabled="">CREATE TRIGGER F
+AFTER INSERT ON Highschooler 
+WHEN new.name='Friendly'
+BEGIN
+
+INSERT INTO Likes SELECT new.id, h.id FROM highschooler as h WHERE new.grade = h.grade AND NOT (new.id=h.id);
+
+END</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>CREATE TRIGGER F
+AFTER INSERT ON Highschooler 
+WHEN new.name='Friendly'
+BEGIN
+
+INSERT INTO Likes SELECT new.id, h.id FROM highschooler as h WHERE new.grade = h.grade AND NOT (new.id=h.id);
+
+END</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Trigger command(s) were executed.<br><br>To check your trigger(s), we first ran the following data modification statement(s): <i>insert into Highschooler values (1000, 'Friendly', 9);
+ insert into Highschooler values (2000, 'Friendly', 11);
+ insert into Highschooler values (3000, 'Unfriendly', 10)</i>. <br><br>We then ran the following query: <i>select H1.name, H1.grade, H2.name, H2.grade from Likes L, Highschooler H1, Highschooler H2 where L.ID1 = H1.ID and L.ID2 = H2.ID order by H1.name, H1.grade, H2.name, H2.grade</i><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>9</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Friendly</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. All we actually check is that the verification query gets the right answer on the small sample database. Circumventing the system will get you a high score on the exercises, but it won't help you learn about triggers.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 2</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write one or more triggers to manage the grade attribute of new Highschoolers. If the inserted tuple has a value less than 9 or greater than 12, change the value to NULL. On the other hand, if the inserted tuple has a null value for grade, change it to 9.
+<br><ul>
+<li>
+Your triggers are created in SQLite, so you must conform to the trigger constructs supported by SQLite.
+</li>
+<li>
+To create more than one trigger, separate the triggers with a vertical bar (|).
+</li>
+<li>
+Remember you can launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>
+to explore the data set on the side as you develop your solution.
+</li>
+</ul>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=2">Trigger Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[2]" id="answer[2]" rows="1" disabled="">CREATE TRIGGER gradeTrigger1
+AFTER INSERT ON highschooler
+FOR EACH ROW
+WHEN new.grade &lt; 9 OR new.grade &gt; 12
+BEGIN
+
+UPDATE highschooler SET grade=NULL WHERE id=new.id;
+
+END
+
+|
+
+CREATE TRIGGER gradeTrigger2
+AFTER INSERT ON highschooler
+FOR EACH ROW
+WHEN new.grade IS NULL
+BEGIN
+
+UPDATE highschooler SET grade=9 WHERE id=new.id;
+
+END</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>CREATE TRIGGER gradeTrigger1
+AFTER INSERT ON highschooler
+FOR EACH ROW
+WHEN new.grade &lt; 9 OR new.grade &gt; 12
+BEGIN
+
+UPDATE highschooler SET grade=NULL WHERE id=new.id;
+
+END
+
+|
+
+CREATE TRIGGER gradeTrigger2
+AFTER INSERT ON highschooler
+FOR EACH ROW
+WHEN new.grade IS NULL
+BEGIN
+
+UPDATE highschooler SET grade=9 WHERE id=new.id;
+
+END</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Trigger command(s) were executed.<br><br>To check your trigger(s), we first ran the following data modification statement(s): <i>insert into Highschooler values (2121, 'Caitlin', null);
+ insert into Highschooler values (2122, 'Don', null);
+ insert into Highschooler values (2123, 'Elaine', 7);
+ insert into Highschooler values (2124, 'Frank', 20);
+ insert into Highschooler values (2125, 'Gale', 10)
+ </i>. <br><br>We then ran the following query: <i>select * from Highschooler order by ID</i><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>1025</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1247</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1304</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1316</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1381</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1468</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1641</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1661</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1689</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1709</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1782</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1911</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1934</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2121</td>
+<td>Caitlin</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2122</td>
+<td>Don</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2123</td>
+<td>Elaine</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>2124</td>
+<td>Frank</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>2125</td>
+<td>Gale</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>1025</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1247</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1304</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1316</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1381</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1468</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1641</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1661</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1689</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1709</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1782</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1911</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1934</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2121</td>
+<td>Caitlin</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2122</td>
+<td>Don</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2123</td>
+<td>Elaine</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>2124</td>
+<td>Frank</td>
+<td>&lt;NULL&gt;</td>
+</tr>
+<tr>
+<td>2125</td>
+<td>Gale</td>
+<td>10</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. All we actually check is that the verification query gets the right answer on the small sample database. Circumventing the system will get you a high score on the exercises, but it won't help you learn about triggers.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 3</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write one or more triggers to maintain symmetry in friend relationships. Specifically, if (A,B) is deleted from Friend, then (B,A) should be deleted too. If (A,B) is inserted into Friend then (B,A) should be inserted too. Don't worry about updates to the Friend table.
+<br><ul>
+<li>
+Your triggers are created in SQLite, so you must conform to the trigger constructs supported by SQLite.
+</li>
+<li>
+To create more than one trigger, separate the triggers with a vertical bar (|).
+</li>
+<li>
+Remember you can launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>
+to explore the data set on the side as you develop your solution.
+</li>
+</ul>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=3">Trigger Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[3]" id="answer[3]" rows="1" disabled="">CREATE TRIGGER friendInsert
+AFTER INSERT ON friend
+FOR EACH ROW
+BEGIN
+INSERT INTO friend VALUES (new.id2, new.id1);
+END
+
+|
+
+
+CREATE TRIGGER friendDelete
+AFTER DELETE ON friend
+FOR EACH ROW
+BEGIN
+DELETE FROM friend WHERE id1=old.id2 AND id2=old.id1;
+END</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>CREATE TRIGGER friendInsert
+AFTER INSERT ON friend
+FOR EACH ROW
+BEGIN
+INSERT INTO friend VALUES (new.id2, new.id1);
+END
+
+|
+
+
+CREATE TRIGGER friendDelete
+AFTER DELETE ON friend
+FOR EACH ROW
+BEGIN
+DELETE FROM friend WHERE id1=old.id2 AND id2=old.id1;
+END</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Trigger command(s) were executed.<br><br>To check your trigger(s), we first ran the following data modification statement(s): <i>delete from Friend where ID1 = 1641 and ID2 = 1468;
+ delete from Friend where ID1 = 1247 and ID2 = 1911;
+ insert into Friend values (1510, 1934);
+ insert into Friend values (1101, 1709)</i>. <br>English description of modifications: Deleted friendship (Brittany, 10, Kris, 10);
+ Deleted friendship (Alexis, 11, Gabriel, 11);
+ Inserted friendship (Jordan, 9, Kyle, 12);
+ Inserted friendship (Haley, 10, Cassandra, 9) <br><br>We then ran the following query: <i>select H1.name, H1.grade, H2.name, H2.grade from Friend F, Highschooler H1, Highschooler H2 where F.ID1 = H1.ID and F.ID2 = H2.ID order by H1.name, H1.grade, H2.name, H2.grade</i><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. All we actually check is that the verification query gets the right answer on the small sample database. Circumventing the system will get you a high score on the exercises, but it won't help you learn about triggers.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 4</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write a trigger that automatically deletes students when they graduate, i.e., when their grade is updated to exceed 12.
+<br><ul>
+<li>
+Your triggers are created in SQLite, so you must conform to the trigger constructs supported by SQLite.
+</li>
+<li>
+Remember you can launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>
+to explore the data set on the side as you develop your solution.
+</li>
+</ul>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=4">Trigger Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[4]" id="answer[4]" rows="1" disabled="">CREATE TRIGGER graduateTrigger
+AFTER UPDATE on highschooler
+WHEN new.grade &gt; 12
+BEGIN
+DELETE FROM highschooler WHERE id=new.id;
+END</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>CREATE TRIGGER graduateTrigger
+AFTER UPDATE on highschooler
+WHEN new.grade &gt; 12
+BEGIN
+DELETE FROM highschooler WHERE id=new.id;
+END</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Trigger command(s) were executed.<br><br>To check your trigger(s), we first ran the following data modification statement(s): <i>update Highschooler set grade = grade + 1 where name = 'Austin' or name = 'Kyle' or name = 'Logan'</i>. <br><br>We then ran the following query: <i>select * from Highschooler order by name, grade</i><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>1247</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1782</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1316</td>
+<td>Austin</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1641</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1709</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1689</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1911</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1025</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1304</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1468</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1381</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>1247</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1782</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1316</td>
+<td>Austin</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1641</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1709</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1689</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1911</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1025</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1304</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1468</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1381</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. All we actually check is that the verification query gets the right answer on the small sample database. Circumventing the system will get you a high score on the exercises, but it won't help you learn about triggers.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 5</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write a trigger that automatically deletes students when they graduate, i.e., when their grade is updated to exceed 12 (same as Question 4). In addition, write a trigger so when a student is moved ahead one grade, then so are all of his or her friends.
+<br><ul>
+<li>
+Your triggers are created in SQLite, so you must conform to the trigger constructs supported by SQLite.
+</li>
+<li>
+To create more than one trigger, separate the triggers with a vertical bar (|).
+</li>
+<li>
+Remember you can launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>
+to explore the data set on the side as you develop your solution.
+</li>
+</ul>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=5">Trigger Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[5]" id="answer[5]" rows="1" disabled="">CREATE TRIGGER graduateTrigger
+AFTER UPDATE on highschooler
+WHEN new.grade &gt; 12
+BEGIN
+DELETE FROM highschooler WHERE id=new.id;
+END
+
+|
+
+
+CREATE TRIGGER moveAhead
+AFTER UPDATE on highschooler
+WHEN new.grade = old.grade + 1
+BEGIN
+UPDATE highschooler SET grade = grade+1 WHERE id in (SELECT id2 FROM friend WHERE id1=new.id); 
+END
+</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>CREATE TRIGGER graduateTrigger
+AFTER UPDATE on highschooler
+WHEN new.grade &gt; 12
+BEGIN
+DELETE FROM highschooler WHERE id=new.id;
+END
+
+|
+
+
+CREATE TRIGGER moveAhead
+AFTER UPDATE on highschooler
+WHEN new.grade = old.grade + 1
+BEGIN
+UPDATE highschooler SET grade = grade+1 WHERE id in (SELECT id2 FROM friend WHERE id1=new.id); 
+END
+</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Trigger command(s) were executed.<br><br>To check your trigger(s), we first ran the following data modification statement(s): <i>update Highschooler set grade = grade + 1 where name = 'Austin' or name = 'Kyle' or name = 'Logan'</i>. <br><br>We then ran the following query: <i>select * from Highschooler order by name, grade</i><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>1247</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1782</td>
+<td>Andrew</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1316</td>
+<td>Austin</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1641</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1709</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1689</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1911</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1468</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1381</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>1247</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1782</td>
+<td>Andrew</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1316</td>
+<td>Austin</td>
+<td>12</td>
+</tr>
+<tr>
+<td>1641</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1709</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1689</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1911</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1501</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>1510</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1468</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1381</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. All we actually check is that the verification query gets the right answer on the small sample database. Circumventing the system will get you a high score on the exercises, but it won't help you learn about triggers.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+<div class="quiz_question">
+<div class="quiz_question_number">Question 6</div>
+<div class="quiz_question_message"></div>
+<div class="quiz_question_text">
+                  
+Write a trigger to enforce the following behavior: If A liked B but is updated to A liking C instead, and B and C were friends, make B and C no longer friends. Don't forget to delete the friendship in both directions, and make sure the trigger only runs when the "liked" (ID2) person is changed but the "liking" (ID1) person is not changed.
+<br><ul>
+<li>
+Your triggers are created in SQLite, so you must conform to the trigger constructs supported by SQLite.
+</li>
+<li>
+Remember you can launch the
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=7">Command Workbench</a>
+to explore the data set on the side as you develop your solution.
+</li>
+</ul>
+<a class="immediate_feedback_engine_link" href="http://www.db-class.org/course/quiz/immediate_feedback_engine?quiz_id=82&question_id=6">Trigger Workbench</a>
+</div>
+<div class="quiz_options"><div class="quiz_option"><textarea class="quiz_option_selector" name="answer[6]" id="answer[6]" rows="1" disabled="">CREATE TRIGGER likeTrigger
+AFTER UPDATE ON likes
+WHEN exists(SELECT * FROM friend WHERE id1=new.id2 AND id2=old.id2) AND new.id1 = old.id1 AND NOT new.id2 = old.id2
+BEGIN
+DELETE FROM friend WHERE id1=new.id2 AND id2=old.id2;
+DELETE FROM friend WHERE id1=old.id2 AND id2=new.id2;
+END</textarea></div></div>
+<div class="quiz_question_immediate_feedback_engine"></div>
+<div class="quiz_feedback"><table class="quiz_feedback_table">
+<tbody><tr>
+<th width="45%">Your answer</th>
+<th width="10%">Score</th>
+<th width="45%">Choice explanation</th>
+</tr>
+<tr>
+<td>CREATE TRIGGER likeTrigger
+AFTER UPDATE ON likes
+WHEN exists(SELECT * FROM friend WHERE id1=new.id2 AND id2=old.id2) AND new.id1 = old.id1 AND NOT new.id2 = old.id2
+BEGIN
+DELETE FROM friend WHERE id1=new.id2 AND id2=old.id2;
+DELETE FROM friend WHERE id1=old.id2 AND id2=new.id2;
+END</td>
+<td>1.00</td>
+<td> <br><font style="color:green; font-weight:bold;">Correct</font><br><br>Trigger command(s) were executed.<br><br>To check your trigger(s), we first ran the following data modification statement(s): <i>update Likes set ID2 = 1501 where ID1 = 1911; update Likes set ID2 = 1316 where ID1 = 1501; update Likes set ID2 = 1304 where ID1 = 1934; update Likes set ID1 = 1661, ID2 = 1641 where ID1 = 1025; update Likes set ID2 = 1468 where ID1 = 1247</i>. <br>English description of modifications: Changed Gabriel-11 to like Jessica-11 instead of Alexis-11;
+ Changed Jessica-11 to like Austin-11 instead of Kyle-12;
+ Changed Kyle-12 to like Jordan-12 instead of Jessica-11;
+ Changed 'John-12 liking Haley-10' to 'Logan-12 liking Brittany-10';
+ Changed Alexis-11 to like Kris-10 instead of Kris-10 (so no actual change) <br><br>We then ran the following query: <i>select H1.name, H1.grade, H2.name, H2.grade from Friend F, Highschooler H1, Highschooler H2 where F.ID1 = H1.ID and F.ID2 = H2.ID order by H1.name, H1.grade, H2.name, H2.grade</i><br><br>Your Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<br>Expected Query Result: <table border="1" style="font-size:90%; padding: 1px;border-spacing: 0px; border-collapse: separate">
+<tbody><tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Alexis</td>
+<td>11</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Austin</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Andrew</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>11</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Brittany</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Cassandra</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Cassandra</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Gabriel</td>
+<td>11</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Haley</td>
+<td>10</td>
+<td>Kris</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Gabriel</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Jessica</td>
+<td>11</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>John</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Gabriel</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>9</td>
+<td>Tiffany</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Kyle</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>12</td>
+<td>Logan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Andrew</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Brittany</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kris</td>
+<td>10</td>
+<td>Haley</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jessica</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Kyle</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>John</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Logan</td>
+<td>12</td>
+<td>Jordan</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Alexis</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Tiffany</td>
+<td>9</td>
+<td>Jordan</td>
+<td>9</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<th>Total</th>
+<td colspan="2">1.00 / 1.00</td>
+</tr>
+</tbody></table></div>
+<div class="quiz_explanation">
+<b>Note</b><br>
+Even if your solution is marked as correct, it is possible that your solution does not correctly reflect the problem at hand. All we actually check is that the verification query gets the right answer on the small sample database. Circumventing the system will get you a high score on the exercises, but it won't help you learn about triggers.
+On the other hand, an incorrect attempt at a general solution is unlikely to produce the right answer, so you shouldn't be led astray by our checking system.
+                </div>
+</div>
+</div>
+</div></span>
+				</div> <!-- content -->
+
+            </div> <!-- content-body -->
+
+		</div> <!-- container -->
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4245877-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+
+
+
+
+</body></html>

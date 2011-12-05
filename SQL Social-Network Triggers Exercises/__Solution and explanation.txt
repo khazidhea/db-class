@@ -1,0 +1,168 @@
+1--------------------------------------------------
+
+
+Question:
+
+Write a trigger that makes new students named 'Friendly' automatically like everyone else in their grade. That is, after the trigger runs, we should have ('Friendly', A) in the Likes table for every other Highschooler A in the same grade as 'Friendly'.
+
+
+Answer:
+
+CREATE TRIGGER F 
+AFTER INSERT ON Highschooler 
+WHEN new.name='Friendly' 
+BEGIN 
+	INSERT INTO Likes SELECT new.id, h.id FROM highschooler as h WHERE new.grade = h.grade AND NOT (new.id=h.id); 
+END
+
+
+Explanation:
+
+Pretty straightforward when you use "INSERT INTO ... SELECT" construct. When you use this all the tuples returned by SELECT will be added. On the other hand "INSERT INTO ... VALUES" adds ONE tuple only.
+
+
+
+2--------------------------------------------------
+
+
+Question:
+
+Write one or more triggers to manage the grade attribute of new Highschoolers. If the inserted tuple has a value less than 9 or greater than 12, change the value to NULL. On the other hand, if the inserted tuple has a null value for grade, change it to 9. 
+
+
+Answer:
+
+CREATE TRIGGER gradeTrigger1 
+AFTER INSERT ON highschooler 
+WHEN new.grade < 9 OR new.grade > 12 
+BEGIN 
+	UPDATE highschooler SET grade=NULL WHERE id=new.id; 
+END 
+
+| 
+
+CREATE TRIGGER gradeTrigger2 
+AFTER INSERT ON highschooler 
+WHEN new.grade IS NULL 
+BEGIN 
+	UPDATE highschooler SET grade=9 WHERE id=new.id; 
+END
+
+
+Explanation:
+
+The tricky part here might be usin "IS NULL" check instead of "= NULL". Other than that it is really simple.
+
+
+
+3--------------------------------------------------
+
+
+Question:
+
+Write one or more triggers to maintain symmetry in friend relationships. Specifically, if (A,B) is deleted from Friend, then (B,A) should be deleted too. If (A,B) is inserted into Friend then (B,A) should be inserted too. Don't worry about updates to the Friend table. 
+
+
+Answer:
+
+CREATE TRIGGER friendInsert 
+AFTER INSERT ON friend 
+BEGIN 
+	INSERT INTO friend VALUES (new.id2, new.id1); 
+END 
+
+| 
+
+CREATE TRIGGER friendDelete 
+AFTER DELETE ON friend 
+BEGIN 
+	DELETE FROM friend WHERE id1=old.id2 AND id2=old.id1; 
+END
+
+
+Explanation:
+
+Swap the values using old and new.
+
+
+
+4--------------------------------------------------
+
+
+Question:
+
+Write a trigger that automatically deletes students when they graduate, i.e., when their grade is updated to exceed 12. 
+
+
+Answer:
+
+CREATE TRIGGER graduateTrigger 
+AFTER UPDATE on highschooler 
+WHEN new.grade > 12 
+BEGIN 
+	DELETE FROM highschooler WHERE id=new.id; 
+END
+
+
+Explanation:
+
+Probably the easiest one, just make sure you use new.grade > 12.
+
+
+5--------------------------------------------------
+
+
+Question:
+
+Write a trigger that automatically deletes students when they graduate, i.e., when their grade is updated to exceed 12 (same as Question 4). In addition, write a trigger so when a student is moved ahead one grade, then so are all of his or her friends. 
+
+
+Answer:
+
+CREATE TRIGGER graduateTrigger 
+AFTER UPDATE on highschooler 
+WHEN new.grade > 12 
+BEGIN 
+	DELETE FROM highschooler WHERE id=new.id; 
+END 
+
+| 
+
+CREATE TRIGGER moveAhead 
+AFTER UPDATE on highschooler 
+WHEN new.grade = old.grade + 1 
+BEGIN 
+	UPDATE highschooler SET grade = grade+1 WHERE id in (SELECT id2 FROM friend WHERE id1=new.id); 
+END
+
+
+Explanation:
+
+Use the trigger from q4 and add a new one. In the new one use a subquery to select all friends of the guy who is updated.
+
+
+
+6--------------------------------------------------
+
+
+Question:
+
+Write a trigger to enforce the following behavior: If A liked B but is updated to A liking C instead, and B and C were friends, make B and C no longer friends. Don't forget to delete the friendship in both directions, and make sure the trigger only runs when the "liked" (ID2) person is changed but the "liking" (ID1) person is not changed. 
+
+
+Answer:
+
+CREATE TRIGGER likeTrigger 
+AFTER UPDATE ON likes 
+WHEN exists(SELECT * FROM friend WHERE id1=new.id2 AND id2=old.id2) 
+	AND new.id1 = old.id1 AND NOT new.id2 = old.id2 
+BEGIN 
+	DELETE FROM friend WHERE id1=new.id2 AND id2=old.id2; 
+	DELETE FROM friend WHERE id1=old.id2 AND id2=new.id2; 
+END
+
+
+Explanation:
+
+Trigger applies to updates on the Likes table. The condition is when "A liked B" is changed to "A likes C", which means the ID2 column of a row in Likes is changed, while the ID1 column remains the same. The other part of the condition is that B and C were friends and we can use the "exists(SELECT ...)" for that.
+The deletion is similar to the friendsTrigger from q3.
